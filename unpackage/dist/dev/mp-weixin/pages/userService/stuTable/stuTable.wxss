@@ -1,0 +1,34 @@
+.cu-form-group .title.data-v-23b04961 {
+  min-width: calc(4em + 15px);
+}
+.MainTop.data-v-23b04961 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.MainTop .avatar-box.data-v-23b04961 {
+  margin: 25rpx;
+}
+.MainTop .avatar-box image.data-v-23b04961 {
+  height: 125rpx;
+  width: 125rpx;
+  border-radius: 50%;
+}
+.MainTop .MainTop-content.data-v-23b04961 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  width: 550rpx;
+  margin-top: 25rpx;
+}
+.MainContent .MainContent-title.data-v-23b04961 {
+  text-align: center;
+}
+
