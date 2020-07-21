@@ -2,9 +2,9 @@
 	<view class="container">
 		<view class="header">
 			<view class="avatar-box">
-				<image :src="isLogin?avatarURL:'../../static/imgs/img_25832_0_2.png'" mode="aspectFill"></image>
+				<image :src="hasLogin?avatarURL:'../../static/imgs/img_25832_0_2.png'" mode="aspectFill"></image>
 			</view>
-			<view class="header-content" v-if="isLogin">
+			<view class="header-content" v-if="hasLogin">
 				<view class="username">
 					蒋滔
 				</view>
@@ -21,7 +21,7 @@
 		
 		<view class="main">
 			<view class="cu-list menu">
-				<view class="cu-item arrow" v-if="isLogin">
+				<view class="cu-item arrow" v-if="hasLogin">
 					<view class="content">
 						<text class="cuIcon-list"></text>
 						<text class="text-black">账号管理</text>
@@ -37,21 +37,25 @@
 		</view>
 		
 		<view class="footer">
-			<button v-if="isLogin" class="cu-btn text-white shadow shadow-blur" @tap="logout">退出账号</button>
+			<button v-if="hasLogin" class="cu-btn text-white shadow shadow-blur" @tap="logout">退出账号</button>
 			<button v-else class="cu-btn text-white shadow shadow-blur" @tap="navTo('../login/login')">去登陆</button>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
+	import loginapi from '../../common/loginApis/loginapi.js'
 	import navHeader from '../../components/nav-header.vue'
 	
 	export default {
 		data() {
 			return {
-				isLogin:false,
 				avatarURL:'http://localhost:8083/StuInfoService/img/girl.png'
 			};
+		},
+		computed:{
+			...mapState(['hasLogin'])
 		},
 		components:{
 			navHeader
@@ -85,15 +89,19 @@
 			},
 			
 			//退出登录
-			logout(){
-				try{
-					uni.clearStorage()
-					uni.reLaunch({
-						url:'../index/index'
+			async logout(){
+				let islogout = await loginapi.doLogout()//执行登出
+				if(!islogout) {//执行登出失败
+					uni.showToast({
+						icon:'none',
+						title:'操作失败，请检查网络'
 					})
-				}catch(e){
-					//TODO handle the exception
+					return 
 				}
+				//登出成功，直接跳转回首页
+				uni.reLaunch({
+					url:'../index/index'
+				})
 			}
 			
 		}

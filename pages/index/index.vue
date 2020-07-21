@@ -36,7 +36,7 @@
 						<view class="action text-green" @tap="goLogin">去登录</view>
 						<view class="action text-blue" @tap="hideModal">取消</view>
 					</view>
-					<view class="padding-xl">
+					<view class="bg-white padding-xl">
 						登录后可使用服务，是否去登录？
 					</view>
 				</view>
@@ -53,17 +53,19 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	import noticeList from './testdata.js'
 	import serviceCard from '../../components/service-card.vue'
-	
 	export default {
 		data() {
 			return {
 				TabCur: 0,//导航号
 				scrollLeft: 0,//滚动
-				isLogin: false,
 				modalName: null, //模态框
 			}
+		},
+		computed:{
+			...mapState(['hasLogin'])
 		},
 		components:{
 			serviceCard
@@ -71,28 +73,12 @@
 		onLoad() {
 		},
 		onShow() {
-			this.checkLogin()
 		},
 		methods: {
-			//检查是否登录
-			checkLogin(){
-				try{
-					uni.getStorage({
-						key:'token',
-						success: (res) => {
-							console.log(res)
-							if(res.data.trim()!=''){
-								this.isLogin = true
-							}
-						}
-					})
-				}catch(e){
-					//TODO handle the exception
-				}
-			},
 			//跳转页面
 			goItemPage(url){
-				if(!this.isLogin){
+				console.log(this.hasLogin)
+				if(!this.hasLogin){
 					this.showModal()
 					return
 				}

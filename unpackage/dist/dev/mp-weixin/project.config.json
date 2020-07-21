@@ -6,7 +6,8 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "minified": true
+    "minified": true,
+    "postcss": true
   },
   "compileType": "miniprogram",
   "libVersion": "",
@@ -31,7 +32,7 @@
         {
           "name": "userinfo",
           "id": 0,
-          "pathName": "pages/userinfo/userinfo"
+          "pathName": "pages/userService/userinfo/userinfo"
         },
         {
           "name": "login",

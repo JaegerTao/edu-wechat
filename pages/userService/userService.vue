@@ -36,6 +36,7 @@
 <script>
 	import navHeader from '../../components/nav-header.vue'
 	import serviceCard from '../../components/service-card.vue'
+	
 	export default {
 		data() {
 			return {

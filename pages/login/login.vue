@@ -55,6 +55,7 @@
 </template>
 
 <script>
+	import loginapi from '../../common/loginApis/loginapi.js'
 	export default {
 		data() {
 			return {
@@ -105,7 +106,7 @@
 			hideModal() {//隐藏登录框
 				this.modalName = null
 			},
-			doLogin(){
+			Verify(){//验证表单,成功返回序列化数据，失败返回false
 				var otherPra={
 					reqEmptyVal:true
 				}
@@ -117,16 +118,22 @@
 						icon:"none"
 					});
 					// 表单序列化
-					let submitData="序列化数组："+JSON.stringify(this.$submitForm(this.formData))
-					console.log(submitData)
-					try{
-						uni.setStorageSync('token','login')
-						uni.switchTab({
-							url:'../index/index'
-						})
-					}catch(e){
-						//TODO handle the exception
-					}
+					let submitData=JSON.stringify(this.$submitForm(this.formData)) //序列化数组
+					// console.log(submitData)
+					return submitData
+				}else{
+					return false
+				}
+			},
+			async doLogin(){//执行登录
+				let submitData = this.Verify()
+				if(!submitData) return //验证失败
+				let res = await loginapi.doLogin(submitData)
+				console.log(res)
+				if(res){//登录成功
+					uni.switchTab({
+						url:'../index/index'
+					})
 				}
 			}
 		}
