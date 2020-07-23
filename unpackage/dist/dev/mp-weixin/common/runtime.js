@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/service-card":1,"components/nav-header":1};
+/******/ 		var cssChunks = {"components/service-card":1,"components/nav-header":1,"components/circle-percent/circle-percent":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/service-card":"components/service-card","components/nav-header":"components/nav-header"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/service-card":"components/service-card","components/nav-header":"components/nav-header","components/circle-percent/circle-percent":"components/circle-percent/circle-percent"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

@@ -8,14 +8,14 @@
 		<view class="main" :style="[{height: deviceHeight + 'px'}]">
 			<view class="main-funcBtns">
 				<view class="grid col-2 text-center">
-					<view :class="toggleDelay?'animation-slide-bottom':''" :style="[{animationDelay: 0.5+'s'}]" @tap="goStuTable">
+					<view :class="toggleDelay?'animation-slide-bottom':''" :style="[{animationDelay: '1s'}]" @tap="goStuTable">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg1.png" title="信息采集" vice="学生个人基本信息采集" imgsize="150"></service-card>
 					</view>
 					<view class="" @tap="goUserinfo">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg2.png" title="学生一张表" vice="学生一张表包含个人基础信息/组织关系信息/履历信息等"
 						 imgsize="150"></service-card>
 					</view>
-					<view class="">
+					<view class="" @tap="ToggleDelay()">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg3.png" title="常见表格自动生成/填写" vice="提供贫困生奖助学金申请表、入党申请书、请假条等多类表格自动生成与填写服务" imgsize="150"></service-card>
 					</view>
 					<view class="" @tap="goHandleProcess">
@@ -49,7 +49,7 @@
 			serviceCard
 		},
 		onShow() {
-			this.ToggleDelay()
+			// this.ToggleDelay()
 			this.deviceHeight = this.$deviceHeight()
 		},
 		methods:{

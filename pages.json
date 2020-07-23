@@ -28,6 +28,14 @@
             "path" : "pages/userService/stuTable/stuTable",
             "style" : {}
         }
+        ,{
+            "path" : "pages/onlineTest/onlineTest",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/onlineTest/examFrame/examFrame",
+            "style" : {}
+        }
     ],
 	"tabBar": {
 		"color": "#7a7e83",
@@ -68,8 +76,8 @@
 				"name":"stutable",
 				"path":"pages/userService/stuTable/stuTable"
 			},{
-				"name":"mine",
-				"path":"pages/mine/mine"
+				"name":"onlinetest",
+				"path":"pages/onlineTest/onlineTest"
 			}
 		]
 	}

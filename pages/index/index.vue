@@ -18,7 +18,7 @@
 					<view class="funcBtns" @tap="goItemPage('../userService/userService')">
 						<service-card></service-card>
 					</view>
-					<view class="funcBtns" @tap="goItemPage(2)">
+					<view class="funcBtns" @tap="goItemPage('../onlineTest/onlineTest')">
 						<service-card url="../static/imgs/本科生管理@3x.png" title="在线模考与练习服务"></service-card>
 					</view>
 					<view class="funcBtns" @tap="goItemPage(3)">

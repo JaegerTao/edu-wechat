@@ -8,7 +8,9 @@
     "pages/userService/handleProcess/affairDetail/affairDetail",
     "pages/login/login",
     "pages/login/forgetPwd/forgetPwd",
-    "pages/userService/stuTable/stuTable"
+    "pages/userService/stuTable/stuTable",
+    "pages/onlineTest/onlineTest",
+    "pages/onlineTest/examFrame/examFrame"
   ],
   "subPackages": [],
   "window": {
@@ -37,5 +39,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap41.json"
+  "sitemapLocation": "sitemap87.json"
 }
