@@ -12,6 +12,7 @@
   margin: 62.5rpx;
 }
 .header .avatar-box image.data-v-dcbcfe34 {
+  border: 1rpx solid #ffffff;
   border-radius: 50%;
   width: 125rpx;
   height: 125rpx;

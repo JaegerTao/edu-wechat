@@ -12,8 +12,9 @@ App.mpType = 'app'
 Vue.use(verification)
 Vue.use(device)
 
-Vue.prototype.$store = store
-Vue.prototype.$baseURL = 'http://localhost:8083/'
+Vue.prototype.$store = store //挂载vuex
+Vue.prototype.$baseURL = 'http://localhost:8083'
+Vue.prototype.$contentType = 'application/x-www-form-urlencoded; charset=UTF-8'
 
 const app = new Vue({
 	store,

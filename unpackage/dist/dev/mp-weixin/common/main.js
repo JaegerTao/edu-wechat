@@ -21,8 +21,9 @@ _App.default.mpType = 'app';
 _vue.default.use(_verification.default);
 _vue.default.use(_device.default);
 
-_vue.default.prototype.$store = _store.default;
-_vue.default.prototype.$baseURL = 'http://localhost:8083/';
+_vue.default.prototype.$store = _store.default; //挂载vuex
+_vue.default.prototype.$baseURL = 'http://localhost:8083';
+_vue.default.prototype.$contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
 
 var app = new _vue.default(_objectSpread({
   store: _store.default },
@@ -98,7 +99,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _storage = _interopRequireDefault(__webpack_require__(/*! ./common/storage.js */ 146));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
@@ -113,16 +115,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     //检查是否登录
     checkLogin: function checkLogin() {
+      console.log('checklogin');
       try {
-        var token = uni.getStorageSync('token');
-        var sessiontxt = uni.getStorageSync('session');
-        if (!token || !sessiontxt) return;
-        this.$store.commit('slogin', sessiontxt);
+        var STOKEN = _storage.default.getStorageExpire('STOKEN');
+        var YLoginId = _storage.default.getStorageExpire('YLoginId');
+        if (!STOKEN || !YLoginId) return;
+        this.$store.dispatch('setInfo');
       } catch (e) {
         //TODO handle the exception
+        console.log(e);
       }
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 8 */

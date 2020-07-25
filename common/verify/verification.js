@@ -21,7 +21,7 @@ var Vrules={
 	same:{pattern:"",errMess: '两次输入不一致'},
 	pwd:{pattern:Vregular.pwd,errMess: '密码格式不正确'},
 	pwd6to20:{pattern:Vregular.char6to20, errMess: '密码格式不正确'},
-	num4:{pattern: Vregular.num4, errMess: '请输入正确的4位数字'},
+	enNum4:{pattern: Vregular.enNum4, errMess: '请输入4位英文数字'},
 }
 // 去掉首尾空格
 // function Vtrim(str) {

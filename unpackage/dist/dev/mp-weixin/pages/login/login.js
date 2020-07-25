@@ -184,26 +184,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
 var _loginapi = _interopRequireDefault(__webpack_require__(/*! ../../common/loginApis/loginapi.js */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
     return {
-      bgImgUrl: 'http://localhost:8083/img/Login.png',
-      logoImgUrl: this.$baseURL + 'img/xlogo.png',
+      logoImgUrl: this.$baseURL + '/img/xlogo.png',
 
-      modalName: null,
+      TabCur: 0, //导航标识 0-学生登录 1-管理员登录
 
-      formData: [
+      verifyImg: null, //验证码图片
+
+      formData: [//验证表单
       {
         placeholder: "请输入学号",
         label: "学号",
         type: "number",
         rules: {
-          name: "id",
-          value: "",
+          name: "user",
+          value: "20181303002",
           verify: "req|number" } },
 
       {
@@ -212,7 +210,7 @@ var _loginapi = _interopRequireDefault(__webpack_require__(/*! ../../common/logi
         type: "password",
         rules: {
           name: "pwd",
-          value: "",
+          value: "123456",
           verify: "req|pwd6to20",
           errMess: "密码格式不正确" } },
 
@@ -223,50 +221,87 @@ var _loginapi = _interopRequireDefault(__webpack_require__(/*! ../../common/logi
         rules: {
           name: "captcha",
           value: "",
-          verify: "req|num4",
+          verify: "req|enNum4",
           errMess: "验证码不正确" } }] };
 
 
 
 
   },
-  methods: {
-    //学号登录
-    showIdLogin: function showIdLogin() {//展示登录模态框
-      this.modalName = 'loginModal';
-    },
-    hideModal: function hideModal() {//隐藏登录框
-      this.modalName = null;
-    },
-    Verify: function Verify() {//验证表单,成功返回序列化数据，失败返回false
-      var otherPra = {
-        reqEmptyVal: true };
-
-      //验证表单
-      if (this.$vervify({ formDate: this.formData, otherPra: otherPra })) {
-        uni.showToast({
-          title: "验证通过",
-          duration: 2000,
-          icon: "none" });
-
-        // 表单序列化
-        var submitData = JSON.stringify(this.$submitForm(this.formData)); //序列化数组
-        // console.log(submitData)
-        return submitData;
-      } else {
-        return false;
+  onLoad: function onLoad() {
+    this.loadValiCode();
+  },
+  computed: {
+    loginType: function loginType() {//是学生登录或管理登录
+      if (this.TabCur == 0) {
+        return 'S';
+      } else if (this.TabCur == 1) {
+        return 'M';
       }
-    },
-    doLogin: function doLogin() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var submitData, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: //执行登录
-                submitData = _this.Verify();if (
-                submitData) {_context.next = 3;break;}return _context.abrupt("return");case 3:_context.next = 5;return (
-                  _loginapi.default.doLogin(submitData));case 5:res = _context.sent;
-                console.log(res);
-                if (res) {//登录成功
-                  uni.switchTab({
-                    url: '../index/index' });
+    } },
 
-                }case 8:case "end":return _context.stop();}}}, _callee);}))();
+  methods: {
+    //切换导航栏
+    tabSelect: function tabSelect(e) {
+      this.TabCur = e.currentTarget.dataset.id;
+      this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60;
+      this.loadValiCode();
+    },
+    Verify: function Verify() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var otherPra, imgflag, submitData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: //验证表单,成功返回序列化数据，失败返回false
+                otherPra = {
+                  reqEmptyVal: true };
+
+                //验证表单
+                if (!_this.$vervify({ formDate: _this.formData, otherPra: otherPra })) {_context.next = 13;break;}_context.next = 4;return (
+
+                  _loginapi.default.getVerCodeFlag(_this.formData[2].rules.value));case 4:imgflag = _context.sent;if (
+                imgflag) {_context.next = 9;break;}
+                _this.ToastFail('验证码错误');
+                _this.loadValiCode();return _context.abrupt("return",
+                false);case 9:
+
+                // 表单序列化
+                submitData = JSON.stringify(_this.$submitForm(_this.formData)); //序列化数组
+                // console.log(submitData)
+                return _context.abrupt("return", submitData);case 13:return _context.abrupt("return",
+
+                false);case 14:case "end":return _context.stop();}}}, _callee);}))();
+
+    },
+    doLogin: function doLogin() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var submitData;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  _this2.Verify());case 2:submitData = _context2.sent;if (
+                submitData) {_context2.next = 5;break;}return _context2.abrupt("return");case 5:_context2.next = 7;return (
+                  _loginapi.default.doLogin(submitData, _this2.loginType).then(function (res) {
+                    console.log(res);
+                    if (res == 'login:ok') {
+                      uni.showToast({
+                        title: '登录成功' });
+
+                      uni.switchTab({ //登录成功
+                        url: '../index/index' });
+
+                    }
+                  }).catch(function (err) {
+                    console.log(err);
+                    _this2.ToastFail(err);
+                  }));case 7:case "end":return _context2.stop();}}}, _callee2);}))();
+    },
+    //加载验证码图片
+    loadValiCode: function loadValiCode() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  _loginapi.default.loadValiCode().then(function (res) {
+                    _this3.verifyImg = wx.arrayBufferToBase64(res);
+                  }).catch(function (err) {
+                    _this3.verifyImg = null;
+                    _this3.ToastFail('获取验证码失败，请重试');
+                    console.log(err);
+                  }));case 2:case "end":return _context3.stop();}}}, _callee3);}))();
+    },
+    //显示提示信息
+    ToastFail: function ToastFail(text) {
+      uni.showToast({
+        icon: 'none',
+        title: text });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

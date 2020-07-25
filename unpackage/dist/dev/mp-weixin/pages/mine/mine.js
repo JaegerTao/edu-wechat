@@ -187,32 +187,14 @@ var _loginapi = _interopRequireDefault(__webpack_require__(/*! ../../common/logi
 
   },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['hasLogin'])),
+  (0, _vuex.mapState)(['hasLogin', 'YUserName', 'YLoginId'])),
 
   components: {
     navHeader: navHeader },
 
   onShow: function onShow() {
-    this.checkLogin();
   },
   methods: {
-    //检查是否登录
-    checkLogin: function checkLogin() {var _this = this;
-      try {
-        uni.getStorage({
-          key: 'token',
-          success: function success(res) {
-            console.log(res);
-            if (res.data.trim() != '') {
-              _this.isLogin = true;
-            }
-          } });
-
-      } catch (e) {
-        //TODO handle the exception
-      }
-    },
-
     //跳转页面
     navTo: function navTo(url) {
       uni.navigateTo({

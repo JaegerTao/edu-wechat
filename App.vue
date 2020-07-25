@@ -1,4 +1,5 @@
 <script>
+	import storageEx from './common/storage.js'
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -13,13 +14,15 @@
 		methods:{
 			//检查是否登录
 			checkLogin(){
+				console.log('checklogin')
 				try{
-					let token = uni.getStorageSync('token')
-					let sessiontxt = uni.getStorageSync('session')
-					if(!token || !sessiontxt) return
-					this.$store.commit('slogin', sessiontxt)
+					let STOKEN = storageEx.getStorageExpire('STOKEN')
+					let YLoginId = storageEx.getStorageExpire('YLoginId')
+					if(!STOKEN || !YLoginId) return
+					this.$store.dispatch('setInfo')
 				}catch(e){
 					//TODO handle the exception
+					console.log(e)
 				}
 			},
 		}

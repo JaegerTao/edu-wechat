@@ -6,10 +6,10 @@
 			</view>
 			<view class="header-content" v-if="hasLogin">
 				<view class="username">
-					蒋滔
+					{{ YUserName }} 
 				</view>
 				<view class="userid">
-					2017110414
+					{{ YLoginId }}
 				</view>
 			</view>
 			<view class="header-content" v-else>
@@ -51,36 +51,18 @@
 	export default {
 		data() {
 			return {
-				avatarURL:'http://localhost:8083/StuInfoService/img/girl.png'
+				avatarURL:'http://localhost:8083/StuInfoService/img/girl.png',
 			};
 		},
 		computed:{
-			...mapState(['hasLogin'])
+			...mapState(['hasLogin','YUserName','YLoginId']),
 		},
 		components:{
 			navHeader
 		},
 		onShow() {
-			this.checkLogin()
 		},
 		methods:{
-			//检查是否登录
-			checkLogin(){
-				try{
-					uni.getStorage({
-						key:'token',
-						success: (res) => {
-							console.log(res)
-							if(res.data.trim()!=''){
-								this.isLogin = true
-							}
-						}
-					})
-				}catch(e){
-					//TODO handle the exception
-				}
-			},
-			
 			//跳转页面
 			navTo(url){
 				uni.navigateTo({
@@ -124,7 +106,7 @@
 			margin: 62.5rpx;
 			
 			image{
-				// border: 1rpx solid #1CBBB4;
+				border: 1rpx solid #ffffff;
 				border-radius: 50%;
 				width: 125rpx;
 				height: 125rpx;

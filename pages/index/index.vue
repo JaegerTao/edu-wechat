@@ -158,7 +158,7 @@
 	}
 	
 	.index-footer{
-		margin-top: 20rpx;
+		margin-top: 50rpx;
 		height: 120rpx;
 	}
 	
