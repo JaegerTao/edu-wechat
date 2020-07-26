@@ -39,6 +39,9 @@ const store = new Vuex.Store({
 			state.YUType = null
 			state.YUserUnitId = null
 			state.YUserGrade = null
+		},
+		setSTOKEN(state, STOKEN){
+			state.STOKEN = STOKEN
 		}
 	},
 	actions:{

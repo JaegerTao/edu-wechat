@@ -113,6 +113,9 @@
 			tabSelect(e) {
 				this.TabCur = e.currentTarget.dataset.id;
 				this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60
+				if(this.TabCur == 1){
+					this.formData[0].rules.value = '20030083'
+				}
 				this.loadValiCode()
 			},
 			async Verify(){//验证表单,成功返回序列化数据，失败返回false

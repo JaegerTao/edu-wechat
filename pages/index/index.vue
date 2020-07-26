@@ -14,7 +14,8 @@
 		<!-- 主展示main部分 -->
 		<view class="index-main">
 			<view class="index-main-funcBtns">
-				<view class="grid col-2 text-center">
+				<!-- 未登录时显示 -->
+				<view class="grid col-2 text-center" v-if="!hasLogin">
 					<view class="funcBtns" @tap="goItemPage('../userService/userService')">
 						<service-card></service-card>
 					</view>
@@ -27,6 +28,14 @@
 					<view class="funcBtns" @tap="goItemPage(4)">
 						<service-card url="../static/imgs/考试安排icon_96.png" title="课外总览与能力评价服务"></service-card>
 					</view>
+				</view>
+				<!-- 登录后动态加载 -->
+				<view class="grid col-2 text-center" v-if="hasLogin">
+					<block v-for="(serv, index) in serviceList" :key='index'>
+						<view class="funcBtns" @tap="goItemPage(dicPath('s', serv.rorder))">
+							<service-card :url="dicPath('img',serv.rorder)" :title="serv.sename"></service-card>
+						</view>
+					</block>
 				</view>
 			</view>
 			
@@ -54,7 +63,8 @@
 
 <script>
 	import {mapState} from 'vuex'
-	import noticeList from './testdata.js'
+	import indexapi from '../../common/indexApis/indexApi.js'
+	import Dic from './dic.js'
 	import serviceCard from '../../components/service-card.vue'
 	export default {
 		data() {
@@ -62,17 +72,42 @@
 				TabCur: 0,//导航号
 				scrollLeft: 0,//滚动
 				modalName: null, //模态框
+				serviceList: null, //服务列表
+				servPathMap: null
 			}
 		},
 		computed:{
-			...mapState(['hasLogin'])
+			...mapState(['hasLogin','YRole','YLoginId']),
+			dicPath(){//计算属性，根据service获取的数据来查询字典返回路径
+				return function(type, rorder){
+					let that = this
+					for(let dicitem of that.servPathMap){
+						if(rorder == dicitem.rorder){
+							switch(type){
+								case 'img': return dicitem.imgpath 
+									break
+								case 's': return dicitem.spath 
+									break
+								case 'm': return dicitem.mpath
+									break
+								default: 
+									break;
+							}
+						}
+					}
+					return ''
+				}
+			},
 		},
 		components:{
 			serviceCard
 		},
 		onLoad() {
+			this.servPathMap = Dic.servPathMap
+			this.loadService()
 		},
 		onShow() {
+			
 		},
 		methods: {
 			//跳转页面
@@ -86,7 +121,6 @@
 					url: url
 				})
 			},
-			
 			//未登录时模态框操作
 			showModal() {
 				this.modalName = 'bottomModal'
@@ -94,10 +128,39 @@
 			hideModal(e) {
 				this.modalName = null
 			},
+			//收起模态框，跳转登录页
 			goLogin(){
 				this.hideModal()
 				uni.navigateTo({
 					url:'../login/login'
+				})
+			},
+			//获取服务
+			async loadService(){
+				if(!this.hasLogin) return //未登录不需要获取
+				uni.showLoading({
+					mask:true,
+					title:'加载中...'
+				})
+				let options = await indexapi.GetOptions('UserRole&UserID='+this.YLoginId)
+				let serviceData = await indexapi.loadService()
+				if(options == null || serviceData == null) {//获取失败
+					this.ToastFail('服务获取失败')
+					uni.hideLoading()
+					return 
+				}else{
+					this.serviceList = serviceData.rows
+					uni.hideLoading()
+					if(this.serviceList == null) return
+					if(this.serviceList.length <= 0) this.ToastFail('暂无服务')
+				}
+				
+			},
+			//显示提示信息
+			ToastFail(text){
+				uni.showToast({
+					icon:'none',
+					title: text
 				})
 			}
 		}

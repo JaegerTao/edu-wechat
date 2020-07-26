@@ -69,9 +69,10 @@
 					url:url
 				})
 			},
-			
 			//退出登录
 			async logout(){
+				let confirm = await this.showModelConfirm('退出账号','您确定退出当前账号吗？')
+				if(confirm == 'cancel') return //取消登出
 				let islogout = await loginapi.doLogout()//执行登出
 				if(!islogout) {//执行登出失败
 					uni.showToast({
@@ -84,8 +85,23 @@
 				uni.reLaunch({
 					url:'../index/index'
 				})
+			},
+			//显示确认框
+			async showModelConfirm(title, content){
+				return new Promise((resolve, reject)=>{
+					uni.showModal({
+						title:title,
+						content:content,
+						success: (res => {
+							if(res.confirm){
+								resolve('confirm')
+							}else if(res.cancel){
+								resolve('cancel')
+							}
+						})
+					})
+				})
 			}
-			
 		}
 	}
 </script>

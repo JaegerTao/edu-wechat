@@ -13,11 +13,12 @@
 .header-title image.data-v-8924ab1c {
   margin-left: 20rpx;
   height: 50rpx;
-  width: 220rpx;
+  width: 300rpx;
 }
 .header-title .header-title-main.data-v-8924ab1c {
-  margin-left: 80rpx;
-  font-size: 32rpx;
+  width: 450rpx;
+  text-align: center;
+  font-size: 30rpx;
   font-weight: 800;
 }
 

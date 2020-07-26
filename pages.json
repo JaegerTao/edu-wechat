@@ -78,6 +78,9 @@
 			},{
 				"name":"onlinetest",
 				"path":"pages/onlineTest/onlineTest"
+			},{
+				"name":"handleprocess",
+				"path":"pages/userService/handleProcess/handleProcess"
 			}
 		]
 	}

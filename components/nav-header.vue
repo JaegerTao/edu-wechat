@@ -38,11 +38,12 @@
 		image{
 			margin-left: 20rpx;
 			height: 50rpx;
-			width: 220rpx;
+			width: 300rpx;
 		}
 		.header-title-main{
-			margin-left: 80rpx;
-			font-size: 32rpx;
+			width: 450rpx;
+			text-align: center;
+			font-size: 30rpx;
 			font-weight: 800;
 		}
 		

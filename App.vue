@@ -16,9 +16,11 @@
 			checkLogin(){
 				console.log('checklogin')
 				try{
-					let STOKEN = storageEx.getStorageExpire('STOKEN')
 					let YLoginId = storageEx.getStorageExpire('YLoginId')
-					if(!STOKEN || !YLoginId) return
+					if(YLoginId == null) {
+						storageEx.clearExpire()
+						return
+					}
 					this.$store.dispatch('setInfo')
 				}catch(e){
 					//TODO handle the exception
