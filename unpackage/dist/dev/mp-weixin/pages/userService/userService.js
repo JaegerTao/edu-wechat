@@ -172,7 +172,6 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
-      toggleDelay: false,
       deviceHeight: 800 };
 
   },
@@ -186,22 +185,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     // 页面跳转
-    goStuTable: function goStuTable() {//信息采集页面
+    navTo: function navTo(url) {
       uni.navigateTo({
-        url: 'stuTable/stuTable' });
+        url: url });
 
     },
-    goUserinfo: function goUserinfo() {//学生一张表
-      uni.navigateTo({
-        url: 'userinfo/userinfo' });
-
-    },
-    goHandleProcess: function goHandleProcess() {//学生办事指南
-      uni.navigateTo({
-        url: 'handleProcess/handleProcess' });
-
-    },
-
     // 动画
     ToggleDelay: function ToggleDelay() {var _this = this;
       console.log("动画");

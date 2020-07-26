@@ -6,19 +6,19 @@
 		</view>
 
 		<view class="main" :style="[{height: deviceHeight + 'px'}]">
-			<view class="main-funcBtns">
+			<view class="main-funcBtns" >
 				<view class="grid col-2 text-center">
-					<view :class="toggleDelay?'animation-slide-bottom':''" :style="[{animationDelay: '1s'}]" @tap="goStuTable">
+					<view class="" @tap="navTo('stuTable/stuTable')">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg1.png" title="信息采集" vice="学生个人基本信息采集" imgsize="150"></service-card>
 					</view>
-					<view class="" @tap="goUserinfo">
+					<view class="" @tap="navTo('userinfo/userinfo')">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg2.png" title="学生一张表" vice="学生一张表包含个人基础信息/组织关系信息/履历信息等"
 						 imgsize="150"></service-card>
 					</view>
-					<view class="" @tap="ToggleDelay()">
+					<view class="" @tap="navTo()">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg3.png" title="常见表格自动生成/填写" vice="提供贫困生奖助学金申请表、入党申请书、请假条等多类表格自动生成与填写服务" imgsize="150"></service-card>
 					</view>
-					<view class="" @tap="goHandleProcess">
+					<view class="" @tap="navTo('handleProcess/handleProcess')">
 						<service-card url="http://localhost:8083/StuInfoService/img/stuImg4.png" title="学生办事指南" vice="包含转户口、入党流程、选课流程等多种办事指南" imgsize="150"></service-card>
 					</view>
 					<view class="">
@@ -40,7 +40,6 @@
 	export default {
 		data() {
 			return {
-				toggleDelay:false,
 				deviceHeight: 800
 			};
 		},
@@ -54,22 +53,11 @@
 		},
 		methods:{
 			// 页面跳转
-			goStuTable(){//信息采集页面
+			navTo(url) {
 				uni.navigateTo({
-					url:'stuTable/stuTable'
+					url: url
 				})
 			},
-			goUserinfo(){//学生一张表
-				uni.navigateTo({
-					url:'userinfo/userinfo'
-				})
-			},
-			goHandleProcess(){//学生办事指南
-				uni.navigateTo({
-					url:'handleProcess/handleProcess'
-				})
-			},
-			
 			// 动画
 			ToggleDelay() {
 				console.log("动画")

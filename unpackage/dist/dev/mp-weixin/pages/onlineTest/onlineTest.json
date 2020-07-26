@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "circle-percent": "/components/circle-percent/circle-percent"
+    "nav-header": "/components/nav-header",
+    "circle-percent": "/components/circle-percent/circle-percent",
+    "ques-bank": "/pages/onlineTest/onlineTest-components/ques-bank"
   }
 }

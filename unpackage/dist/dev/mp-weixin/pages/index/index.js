@@ -223,8 +223,8 @@ var _dic = _interopRequireDefault(__webpack_require__(/*! ./dic.js */ 27));funct
       scrollLeft: 0, //滚动
       modalName: null, //模态框
       serviceList: null, //服务列表
-      servPathMap: null };
-
+      servPathMap: null //字典
+    };
   },
   computed: _objectSpread({},
   (0, _vuex.mapState)(['hasLogin', 'YRole', 'YLoginId']), {

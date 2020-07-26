@@ -22,7 +22,7 @@
 						<text class="text-bold">{{ affair.GName }}</text>
 					</view>
 					<view class="action">
-						<view class="cuIcon-footprint text-gray">{{" " + affair.seeCnt }}</view>
+						<view class="cuIcon-footprint" :class="[IconColor(index+1)]">{{" " + affair.seeCnt }}</view>
 						<view class="cu-tag round ">{{affair.InputTime }}</view>
 					</view>
 				</view>
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-	import hpTestdata from './hpTestdata.js'
 	import hdprcapi from '../../../common/userServiceApis/hdPrcapi.js'
 	import navHeader from '../../../components/nav-header.vue'
 	import uniPagination from '@/components/uni-pagination/uni-pagination.vue'
@@ -110,7 +109,6 @@
 
 <style lang="less" scoped>
 	.page-handleProcess{
-		background-color: #F0F0F0;
 		height: 100%;
 	}
 	.header{

@@ -73,7 +73,7 @@
 				scrollLeft: 0,//滚动
 				modalName: null, //模态框
 				serviceList: null, //服务列表
-				servPathMap: null
+				servPathMap: null, //字典
 			}
 		},
 		computed:{

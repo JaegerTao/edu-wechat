@@ -35,11 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components = {
-  circlePercent: function() {
-    return __webpack_require__.e(/*! import() | components/circle-percent/circle-percent */ "components/circle-percent/circle-percent").then(__webpack_require__.bind(null, /*! @/components/circle-percent/circle-percent.vue */ 136))
-  }
-}
+var components
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -77,7 +73,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var circlePercent = function circlePercent() {__webpack_require__.e(/*! require.ensure | components/circle-percent/circle-percent */ "components/circle-percent/circle-percent").then((function () {return resolve(__webpack_require__(/*! ../../components/circle-percent/circle-percent.vue */ 136));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var navHeader = function navHeader() {__webpack_require__.e(/*! require.ensure | components/nav-header */ "components/nav-header").then((function () {return resolve(__webpack_require__(/*! @/components/nav-header.vue */ 122));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var circlePercent = function circlePercent() {__webpack_require__.e(/*! require.ensure | components/circle-percent/circle-percent */ "components/circle-percent/circle-percent").then((function () {return resolve(__webpack_require__(/*! ../../components/circle-percent/circle-percent.vue */ 136));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var quesBank = function quesBank() {__webpack_require__.e(/*! require.ensure | pages/onlineTest/onlineTest-components/ques-bank */ "pages/onlineTest/onlineTest-components/ques-bank").then((function () {return resolve(__webpack_require__(/*! ./onlineTest-components/ques-bank.vue */ 167));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
 
 
 
@@ -114,7 +114,9 @@ __webpack_require__.r(__webpack_exports__);
       // accuracy: '0',
       questionNum: 100, //已做题目总数
       rightQNum: 20, //正确题目总数
-      paperNum: 0 //已做试卷套数
+      paperNum: 0, //已做试卷套数
+
+      navCur: 0 //底部导航标识 0 1 2 3
     };
   },
   computed: {
@@ -126,9 +128,16 @@ __webpack_require__.r(__webpack_exports__);
     } },
 
   components: {
-    circlePercent: circlePercent },
+    navHeader: navHeader,
+    circlePercent: circlePercent,
+    quesBank: quesBank },
 
   methods: {
+    // 底部导航栏
+    NavChange: function NavChange(e) {
+      this.navCur = e.currentTarget.dataset.cur;
+    },
+    // 跳转页面
     navTo: function navTo() {
       uni.reLaunch({
         url: './examFrame/examFrame' });
