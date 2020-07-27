@@ -2726,6 +2726,16 @@ scroll-view.cu-steps .cu-item {
 	-webkit-flex: 3;
 	        flex: 3;
 }
+.flex-fourth {
+	-webkit-box-flex: 4;
+	-webkit-flex: 4;
+	        flex: 4;
+}
+.flex-fifth {
+	-webkit-box-flex: 5;
+	-webkit-flex: 5;
+	        flex: 5
+}
 .flex-direction {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;

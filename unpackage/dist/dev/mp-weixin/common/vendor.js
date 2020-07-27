@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2154,112 +2154,6 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 148:
-/*!**********************************************************!*\
-  !*** E:/GitHub/edu-wechat/components/uni-icons/icons.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  'contact': "\uE100",
-  'person': "\uE101",
-  'personadd': "\uE102",
-  'contact-filled': "\uE130",
-  'person-filled': "\uE131",
-  'personadd-filled': "\uE132",
-  'phone': "\uE200",
-  'email': "\uE201",
-  'chatbubble': "\uE202",
-  'chatboxes': "\uE203",
-  'phone-filled': "\uE230",
-  'email-filled': "\uE231",
-  'chatbubble-filled': "\uE232",
-  'chatboxes-filled': "\uE233",
-  'weibo': "\uE260",
-  'weixin': "\uE261",
-  'pengyouquan': "\uE262",
-  'chat': "\uE263",
-  'qq': "\uE264",
-  'videocam': "\uE300",
-  'camera': "\uE301",
-  'mic': "\uE302",
-  'location': "\uE303",
-  'mic-filled': "\uE332",
-  'speech': "\uE332",
-  'location-filled': "\uE333",
-  'micoff': "\uE360",
-  'image': "\uE363",
-  'map': "\uE364",
-  'compose': "\uE400",
-  'trash': "\uE401",
-  'upload': "\uE402",
-  'download': "\uE403",
-  'close': "\uE404",
-  'redo': "\uE405",
-  'undo': "\uE406",
-  'refresh': "\uE407",
-  'star': "\uE408",
-  'plus': "\uE409",
-  'minus': "\uE410",
-  'circle': "\uE411",
-  'checkbox': "\uE411",
-  'close-filled': "\uE434",
-  'clear': "\uE434",
-  'refresh-filled': "\uE437",
-  'star-filled': "\uE438",
-  'plus-filled': "\uE439",
-  'minus-filled': "\uE440",
-  'circle-filled': "\uE441",
-  'checkbox-filled': "\uE442",
-  'closeempty': "\uE460",
-  'refreshempty': "\uE461",
-  'reload': "\uE462",
-  'starhalf': "\uE463",
-  'spinner': "\uE464",
-  'spinner-cycle': "\uE465",
-  'search': "\uE466",
-  'plusempty': "\uE468",
-  'forward': "\uE470",
-  'back': "\uE471",
-  'left-nav': "\uE471",
-  'checkmarkempty': "\uE472",
-  'home': "\uE500",
-  'navigate': "\uE501",
-  'gear': "\uE502",
-  'paperplane': "\uE503",
-  'info': "\uE504",
-  'help': "\uE505",
-  'locked': "\uE506",
-  'more': "\uE507",
-  'flag': "\uE508",
-  'home-filled': "\uE530",
-  'gear-filled': "\uE532",
-  'info-filled': "\uE534",
-  'help-filled': "\uE535",
-  'more-filled': "\uE537",
-  'settings': "\uE560",
-  'list': "\uE562",
-  'bars': "\uE563",
-  'loop': "\uE565",
-  'paperclip': "\uE567",
-  'eye': "\uE568",
-  'arrowup': "\uE580",
-  'arrowdown': "\uE581",
-  'arrowleft': "\uE582",
-  'arrowright': "\uE583",
-  'arrowthinup': "\uE584",
-  'arrowthindown': "\uE585",
-  'arrowthinleft': "\uE586",
-  'arrowthinright': "\uE587",
-  'pulldown': "\uE588",
-  'closefill': "\uE589",
-  'sound': "\uE590",
-  'scan': "\uE612" };exports.default = _default;
-
-/***/ }),
-
 /***/ 15:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
@@ -2989,6 +2883,112 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   })() || Function("return this")()
 );
 
+
+/***/ }),
+
+/***/ 155:
+/*!**********************************************************!*\
+  !*** E:/GitHub/edu-wechat/components/uni-icons/icons.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  'contact': "\uE100",
+  'person': "\uE101",
+  'personadd': "\uE102",
+  'contact-filled': "\uE130",
+  'person-filled': "\uE131",
+  'personadd-filled': "\uE132",
+  'phone': "\uE200",
+  'email': "\uE201",
+  'chatbubble': "\uE202",
+  'chatboxes': "\uE203",
+  'phone-filled': "\uE230",
+  'email-filled': "\uE231",
+  'chatbubble-filled': "\uE232",
+  'chatboxes-filled': "\uE233",
+  'weibo': "\uE260",
+  'weixin': "\uE261",
+  'pengyouquan': "\uE262",
+  'chat': "\uE263",
+  'qq': "\uE264",
+  'videocam': "\uE300",
+  'camera': "\uE301",
+  'mic': "\uE302",
+  'location': "\uE303",
+  'mic-filled': "\uE332",
+  'speech': "\uE332",
+  'location-filled': "\uE333",
+  'micoff': "\uE360",
+  'image': "\uE363",
+  'map': "\uE364",
+  'compose': "\uE400",
+  'trash': "\uE401",
+  'upload': "\uE402",
+  'download': "\uE403",
+  'close': "\uE404",
+  'redo': "\uE405",
+  'undo': "\uE406",
+  'refresh': "\uE407",
+  'star': "\uE408",
+  'plus': "\uE409",
+  'minus': "\uE410",
+  'circle': "\uE411",
+  'checkbox': "\uE411",
+  'close-filled': "\uE434",
+  'clear': "\uE434",
+  'refresh-filled': "\uE437",
+  'star-filled': "\uE438",
+  'plus-filled': "\uE439",
+  'minus-filled': "\uE440",
+  'circle-filled': "\uE441",
+  'checkbox-filled': "\uE442",
+  'closeempty': "\uE460",
+  'refreshempty': "\uE461",
+  'reload': "\uE462",
+  'starhalf': "\uE463",
+  'spinner': "\uE464",
+  'spinner-cycle': "\uE465",
+  'search': "\uE466",
+  'plusempty': "\uE468",
+  'forward': "\uE470",
+  'back': "\uE471",
+  'left-nav': "\uE471",
+  'checkmarkempty': "\uE472",
+  'home': "\uE500",
+  'navigate': "\uE501",
+  'gear': "\uE502",
+  'paperplane': "\uE503",
+  'info': "\uE504",
+  'help': "\uE505",
+  'locked': "\uE506",
+  'more': "\uE507",
+  'flag': "\uE508",
+  'home-filled': "\uE530",
+  'gear-filled': "\uE532",
+  'info-filled': "\uE534",
+  'help-filled': "\uE535",
+  'more-filled': "\uE537",
+  'settings': "\uE560",
+  'list': "\uE562",
+  'bars': "\uE563",
+  'loop': "\uE565",
+  'paperclip': "\uE567",
+  'eye': "\uE568",
+  'arrowup': "\uE580",
+  'arrowdown': "\uE581",
+  'arrowleft': "\uE582",
+  'arrowright': "\uE583",
+  'arrowthinup': "\uE584",
+  'arrowthindown': "\uE585",
+  'arrowthinleft': "\uE586",
+  'arrowthinright': "\uE587",
+  'pulldown': "\uE588",
+  'closefill': "\uE589",
+  'sound': "\uE590",
+  'scan': "\uE612" };exports.default = _default;
 
 /***/ }),
 
@@ -4165,7 +4165,7 @@ Vregular;exports.default = _default;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var device = {};
 
-// 返回设备信息
+// 返回设备信息或提示
 device.install = function (Vue) {
   var deviceHeight = 0;
   var deviceWidth = 0;
@@ -4189,6 +4189,13 @@ device.install = function (Vue) {
     uni.showToast({
       icon: 'none',
       title: text });
+
+  },
+  //显示加载
+  Vue.prototype.$showLoading = function (text) {
+    uni.showLoading({
+      title: text,
+      mask: true });
 
   };
 };var _default =
@@ -9727,7 +9734,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9748,14 +9755,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9831,7 +9838,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -15939,14 +15946,206 @@ module.exports = loginapi;
 /***/ }),
 
 /***/ 54:
-/*!***********************************************************************!*\
-  !*** E:/GitHub/edu-wechat/pages/userService/userinfo/userinfotest.js ***!
-  \***********************************************************************/
+/*!******************************************************************!*\
+  !*** E:/GitHub/edu-wechat/common/userServiceApis/userinfoapi.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 13));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var vm = new _vue.default();
+//获取基本信息
+function getBasicInfo() {return _getBasicInfo.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//获取选项gType: currentTerm-当前学期, termName-学期列表
+function _getBasicInfo() {_getBasicInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:return _context.abrupt("return", new Promise(function (resolve, reject) {uni.request({ url: vm.$baseURL + '/stuinfo/StuTable/getBasicInfo', method: 'POST', header: { 'X-SESSION-TOKEN': vm.$store.state.STOKEN }, success: function success(res) {console.log(res);if (res.statusCode == 200) {resolve(res.data.data);} else {reject(null);}}, fail: function fail(err) {console.log(err);reject(null);} });}));case 1:case "end":return _context.stop();}}}, _callee);}));return _getBasicInfo.apply(this, arguments);}function GetOptions(_x) {return _GetOptions.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//获取成绩单
+function _GetOptions() {_GetOptions = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(gType) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:return _context2.abrupt("return", new Promise(function (resolve, reject) {uni.request({ url: vm.$baseURL + '/info/GetOptions?gType=' + gType, header: { 'Content-Type': vm.$contentType, 'X-SESSION-TOKEN': vm.$store.state.STOKEN }, success: function success(res) {if (res.statusCode == 200) {resolve(res.data);} else {reject(null);}}, fail: function fail(err) {console.log(err);reject(null);} });}));case 1:case "end":return _context2.stop();}}}, _callee2);}));return _GetOptions.apply(this, arguments);}function searchGrade(_x2) {return _searchGrade.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//获取活动
+function _searchGrade() {_searchGrade = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(termCode) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:return _context3.abrupt("return", new Promise(function (resolve, reject) {uni.request({ url: vm.$baseURL + '/school/person/funcPubStudent/SearchInfo/searchGrade', header: { 'X-SESSION-TOKEN': vm.$store.state.STOKEN }, data: { termCode: termCode, StuNo: '2019110401', //测试学号  后期替换：vm.$store.state.YLoginId,
+                  _search: false, nd: '', rows: 500, page: 1, sidx: '', sord: 'desc' }, success: function success(res) {if (res.statusCode == 200) {resolve(res.data);} else {reject(null);}}, fail: function fail(err) {console.log(err);reject(null);} });}));case 1:case "end":return _context3.stop();}}}, _callee3);}));return _searchGrade.apply(this, arguments);}function getActApplyInfo(_x3) {return _getActApplyInfo.apply(this, arguments);}function _getActApplyInfo() {_getActApplyInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(termCode) {return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:return _context4.abrupt("return", new Promise(function (resolve, reject) {
+              uni.request({
+                url: vm.$baseURL + '/stuRecord/funcStuApplyed/getActApplyInfo',
+                header: {
+                  'X-SESSION-TOKEN': vm.$store.state.STOKEN },
+
+                data: {
+                  termCode: termCode,
+                  StuNo: vm.$store.state.YLoginId,
+                  _search: false,
+                  nd: '',
+                  rows: 500,
+                  page: 1,
+                  sidx: '',
+                  sord: 'desc' },
+
+                success: function success(res) {
+                  if (res.statusCode == 200) {
+                    resolve(res.data);
+                  } else {
+                    reject(null);
+                  }
+                },
+                fail: function fail(err) {
+                  console.log(err);
+                  reject(null);
+                } });
+
+            }));case 1:case "end":return _context4.stop();}}}, _callee4);}));return _getActApplyInfo.apply(this, arguments);}
+
+
+var userinfoapi = {
+  getBasicInfo: getBasicInfo,
+  GetOptions: GetOptions,
+  searchGrade: searchGrade,
+  getActApplyInfo: getActApplyInfo };
+
+
+module.exports = userinfoapi;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 56:
+/*!**********************************************************************!*\
+  !*** E:/GitHub/edu-wechat/pages/userService/userinfo/userinfoDic.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  basicInfoDic: [{
+    name: '学号',
+    val: 'StuNo' },
+  {
+    name: '姓名',
+    val: 'PName' },
+  {
+    name: '证件号码(身份证)',
+    val: 'IDCard' },
+  {
+    name: '手机号',
+    val: 'Phone' },
+  {
+    name: '出生日期',
+    val: 'BirthDay' },
+  {
+    name: '民族',
+    val: 'Nation' },
+  {
+    name: '政治面貌',
+    val: 'Party' },
+  {
+    name: '年级',
+    val: 'Grade' },
+  {
+    name: '学院',
+    val: 'UName' },
+  {
+    name: '专业',
+    val: 'MName' },
+  {
+    name: '专业方向',
+    val: 'zydmFX' },
+  {
+    name: '班级',
+    val: 'ClassName' },
+  {
+    name: '辅导员',
+    val: 'FDYName' },
+  {
+    name: '入学时间',
+    val: 'RXSJ' },
+  {
+    name: '学生类别',
+    val: 'XSLB' },
+  {
+    name: '在校状态',
+    val: 'XSZX' },
+  {
+    name: '户籍地',
+    val: 'HKSZDPrefix' },
+  {
+    name: '家庭地址',
+    val: 'JTDZPrefix_JTDZ' },
+  {
+    name: '在校通讯地址',
+    val: 'ZXTXDZ' }],
+
   //个人信息列表
   UserinfoList: {
     basicInfo: {

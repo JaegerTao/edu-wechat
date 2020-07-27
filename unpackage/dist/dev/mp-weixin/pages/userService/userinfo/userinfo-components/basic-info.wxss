@@ -1,0 +1,34 @@
+.page.data-v-7291a07a {
+  background-color: #F0F0F0;
+}
+.user-header .cu-item.data-v-7291a07a {
+  box-shadow: 0rpx 10rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.user-header .cu-item .cu-avatar.data-v-7291a07a {
+  height: 150rpx;
+  width: 150rpx;
+  margin-left: 15rpx;
+}
+.user-header .cu-item .header-content.data-v-7291a07a {
+  height: 130rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.user-header .cu-item .header-content .header-name.data-v-7291a07a {
+  font-size: 35rpx;
+}
+.basic-info .cu-list.data-v-7291a07a,
+.basic-info .cu-bar.data-v-7291a07a {
+  width: 690rpx;
+  margin-left: 30rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgba(0, 0, 0, 0.1);
+  border-radius: 5rpx;
+}
+

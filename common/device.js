@@ -1,6 +1,6 @@
 let device = {}
 
-// 返回设备信息
+// 返回设备信息或提示
 device.install = function(Vue){
 	let deviceHeight = 0
 	let deviceWidth = 0
@@ -24,6 +24,13 @@ device.install = function(Vue){
 		uni.showToast({
 			icon:'none',
 			title: text
+		})
+	},
+	//显示加载
+	Vue.prototype.$showLoading = function(text){
+		uni.showLoading({
+			title:text,
+			mask:true
 		})
 	}
 }

@@ -16,7 +16,7 @@
 									<text :class="collapse(0)?'cuIcon-unfold':'cuIcon-right'"></text>
 								</view>
 							</view>
-							<view class="grid col-2 margin-bottom" v-show="collapse(0)">
+							<view class="grid col-2" v-show="collapse(0)">
 								<view class="" @tap="changeSwiper">
 									<subject-card title="中国近现代史纲要" score="4" type="必修" examtype="考试"></subject-card>
 								</view>
@@ -34,7 +34,7 @@
 									<text :class="collapse(1)?'cuIcon-unfold':'cuIcon-right'"></text>
 								</view>
 							</view>
-							<view class="grid col-2 margin-bottom" v-show="collapse(1)">
+							<view class="grid col-2" v-show="collapse(1)">
 								<view class="">
 									<subject-card title="中国近现代史纲要" score="4" type="必修" examtype="考试"></subject-card>
 								</view>

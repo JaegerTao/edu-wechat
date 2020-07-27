@@ -2825,6 +2825,14 @@ scroll-view.cu-steps .cu-item {
 	flex: 3;
 }
 
+.flex-fourth {
+	flex: 4;
+}
+
+.flex-fifth {
+	flex: 5
+}
+
 .flex-direction {
 	flex-direction: column;
 }

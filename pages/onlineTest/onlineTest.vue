@@ -14,13 +14,13 @@
 				<view class="cuIcon-home"></view>题库
 			</view>
 			<view class="action" :class="navCur==1?'text-blue':'text-gray'" @tap="NavChange" data-cur="1">
-				<view class="cuIcon-similar"></view>做题记录
+				<view class="cuIcon-time"></view>做题记录
 			</view>
 			<view class="action" :class="navCur==2?'text-blue':'text-gray'" @tap="NavChange" data-cur="2">
-				<view class="cuIcon-recharge"></view>我的错题
+				<view class="cuIcon-searchlist"></view>我的错题
 			</view>
 			<view class="action" :class="navCur==3?'text-blue':'text-gray'" @tap="NavChange" data-cur="3">
-				<view class="cuIcon-cart">
+				<view class="cuIcon-message">
 					<view class="cu-tag badge"></view>
 				</view>消息中心
 			</view>
