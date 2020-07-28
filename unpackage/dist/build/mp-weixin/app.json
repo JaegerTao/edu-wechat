@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/login/forgetPwd/forgetPwd"
+  ],
+  "subPackages": [
+    {
+      "root": "pagesStu",
+      "pages": [
+        "onlineTest/onlineTest",
+        "onlineTest/examFrame/examFrame",
+        "userService/userService",
+        "userService/stuTable/stuTable",
+        "userService/userinfo/userinfo",
+        "userService/handleProcess/handleProcess",
+        "userService/handleProcess/affairDetail/affairDetail"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "四川师范大学",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#0faeff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/homeHL.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabbar/user.png",
+        "selectedIconPath": "static/tabbar/userHL.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

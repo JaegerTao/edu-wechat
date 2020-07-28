@@ -63,9 +63,9 @@
 
 <script>
 	import {mapState} from 'vuex'
-	import indexapi from '../../common/indexApis/indexApi.js'
+	import indexapi from '@/common/indexApis/indexApi.js'
 	import Dic from './dic.js'
-	import serviceCard from '../../components/service-card.vue'
+	import serviceCard from '@/components/service-card.vue'
 	export default {
 		data() {
 			return {

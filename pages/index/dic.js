@@ -3,12 +3,12 @@ export default{
 	servPathMap:[{
 		rorder: 1,
 		imgpath: '../static/imgs/个人数据@3x.png',
-		spath: '../userService/userService',
+		spath: '../../pagesStu/userService/userService',
 		mpath: '',
 	},{
 		rorder: 2,
 		imgpath: '../static/imgs/本科生管理@3x.png',
-		spath: '../onlineTest/onlineTest',
+		spath: '../../pagesStu/onlineTest/onlineTest',
 		mpath: '',
 	},{
 		rorder: 3,

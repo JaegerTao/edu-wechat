@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav-header": "/components/nav-header",
+    "basic-info": "/pagesStu/userService/userinfo/userinfo-components/basic-info",
+    "grade-info": "/pagesStu/userService/userinfo/userinfo-components/grade-info"
+  }
+}

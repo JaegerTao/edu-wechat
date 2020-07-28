@@ -7,36 +7,37 @@
 			"path": "pages/mine/mine",
 			"style": {}
 		}, {
-            "path" : "pages/userService/userService",
-            "style" : {}
-        }, {
-			"path":"pages/userService/userinfo/userinfo"
+			"path": "pages/login/login",
+			"style": {}
 		}, {
-			"path":"pages/userService/handleProcess/handleProcess"
-		}, {
-			"path":"pages/userService/handleProcess/affairDetail/affairDetail"
+			"path": "pages/login/forgetPwd/forgetPwd",
+			"style": {}
 		}
-        ,{
-            "path" : "pages/login/login",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/login/forgetPwd/forgetPwd",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/userService/stuTable/stuTable",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/onlineTest/onlineTest",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/onlineTest/examFrame/examFrame",
-            "style" : {}
-        }
-    ],
+	],
+	"subPackages": [{
+		"root": "pagesStu",
+		"pages": [{
+			"path": "onlineTest/onlineTest"
+		}, {
+			"path": "onlineTest/examFrame/examFrame"
+		}, {
+			"path": "userService/userService"
+		}, {
+			"path": "userService/stuTable/stuTable"
+		}, {
+			"path": "userService/userinfo/userinfo"
+		}, {
+			"path": "userService/handleProcess/handleProcess"
+		}, {
+			"path": "userService/handleProcess/affairDetail/affairDetail"
+		}]
+	}],
+	"preloadRule":{
+		"pages/index/index":{
+			"network":"all",
+			"packages":["pagesStu"]
+		}
+	},
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
@@ -62,26 +63,18 @@
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式（list 的索引项）
 		"list": [{
-				"name": "userinfo", //模式名称
-				"path": "pages/userService/userinfo/userinfo" //启动页面，必选
-				// "query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-			},{
-				"name": "login", //模式名称
-				"path": "pages/login/login" //启动页面，必选
-				// "query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-			},{
-				"name":"userservice",
-				"path":"pages/userService/userService"
-			},{
-				"name":"stutable",
-				"path":"pages/userService/stuTable/stuTable"
-			},{
-				"name":"onlinetest",
-				"path":"pages/onlineTest/onlineTest"
-			},{
-				"name":"handleprocess",
-				"path":"pages/userService/handleProcess/handleProcess"
-			}
-		]
+			"name": "login", //模式名称
+			"path": "pages/login/login" //启动页面，必选
+			// "query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+		}, {
+			"name": "userservice",
+			"path": "pagesStu/userService/userService"
+		}, {
+			"name": "stutable",
+			"path": "pagesStu/userService/stuTable/stuTable"
+		}, {
+			"name": "onlinetest",
+			"path": "pagesStu/onlineTest/onlineTest"
+		}]
 	}
 }

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App'
-
 import store from './store'  //使用Vuex
 import verification from 'common/verify/verification.js' //自定义表单验证
 import device from 'common/device.js'//设备信息
