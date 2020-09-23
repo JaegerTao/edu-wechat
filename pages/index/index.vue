@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- header部分 -->
-		<view class="index-header">
+		<view class="index-header" :style="{backgroundImage: 'url('+imgUrl+')'}">
 			<image src="../../static/imgs/sicnu-logo-white.png" mode="aspectFit"></image>
 			
 			<view class="header-title">
@@ -16,24 +16,24 @@
 			<view class="index-main-funcBtns">
 				<!-- 未登录时显示 -->
 				<view class="grid col-2 text-center" v-if="!hasLogin">
-					<view class="funcBtns" @tap="goItemPage('../userService/userService')">
+					<view class="funcBtns" @tap="goItemPage('')">
 						<service-card></service-card>
 					</view>
-					<view class="funcBtns" @tap="goItemPage('../onlineTest/onlineTest')">
-						<service-card url="../static/imgs/本科生管理@3x.png" title="在线模考与练习服务"></service-card>
+					<view class="funcBtns" @tap="goItemPage('')">
+						<service-card url="../../static/imgs/到校登记@3x.png" title="专业要求与学籍服务"></service-card>
 					</view>
-					<view class="funcBtns" @tap="goItemPage(3)">
-						<service-card url="../static/imgs/到校登记@3x.png" title="课程认证评估与学籍服务"></service-card>
+					<view class="funcBtns" @tap="goItemPage('')">
+						<service-card url="../../static/imgs/考试安排icon_96.png" title="课外总览与能力评价服务"></service-card>
 					</view>
-					<view class="funcBtns" @tap="goItemPage(4)">
-						<service-card url="../static/imgs/考试安排icon_96.png" title="课外总览与能力评价服务"></service-card>
+					<view class="funcBtns" @tap="goItemPage('')">
+						<service-card url="../../static/imgs/本科生管理@3x.png" title="课程在线考试"></service-card>
 					</view>
 				</view>
 				<!-- 登录后动态加载 -->
-				<view class="grid col-2 text-center" v-if="hasLogin">
-					<block v-for="(serv, index) in serviceList" :key='index'>
-						<view class="funcBtns" @tap="goItemPage(dicPath('s', serv.rorder))">
-							<service-card :url="dicPath('img',serv.rorder)" :title="serv.sename"></service-card>
+				<view class="grid col-2 text-center" v-if="hasLogin && serviceList">
+					<block v-for="(item, index) in serviceList" :key='index'>
+						<view class="funcBtns" @tap="goItemPage(dicPath('s', item.rorder))">
+							<service-card :url="dicPath('img',item.rorder)" :title="item.sename"></service-card>
 						</view>
 					</block>
 				</view>
@@ -65,10 +65,11 @@
 	import {mapState} from 'vuex'
 	import indexapi from '@/common/indexApis/indexApi.js'
 	import Dic from './dic.js'
-	import serviceCard from '@/components/service-card.vue'
 	export default {
 		data() {
 			return {
+				imgUrl : this.$baseURL + "/img/Timg.jpg",
+				
 				TabCur: 0,//导航号
 				scrollLeft: 0,//滚动
 				modalName: null, //模态框
@@ -100,14 +101,20 @@
 			},
 		},
 		components:{
-			serviceCard
+		},
+		onShow() {
+			if(this.serviceList == null){
+				this.loadService()
+			}
 		},
 		onLoad() {
 			this.servPathMap = Dic.servPathMap
 			this.loadService()
+			console.log('onload')
 		},
-		onShow() {
-			
+		onPullDownRefresh() {
+			console.log(this.serviceList)
+			this.loadService()
 		},
 		methods: {
 			//跳转页面
@@ -115,6 +122,10 @@
 				console.log(this.hasLogin)
 				if(!this.hasLogin){
 					this.showModal()
+					return
+				}
+				if(url === ''){
+					this.$ToastFail('该服务微信端暂未开放，敬请期待')
 					return
 				}
 				uni.navigateTo({
@@ -138,36 +149,30 @@
 			//获取服务
 			async loadService(){
 				if(!this.hasLogin) return //未登录不需要获取
-				uni.showLoading({
-					mask:true,
-					title:'加载中...'
-				})
-				let options = await indexapi.GetOptions('UserRole&UserID='+this.YLoginId)
-				let serviceData = await indexapi.loadService()
-				if(options == null || serviceData == null) {//获取失败
-					this.ToastFail('服务获取失败')
-					uni.hideLoading()
+				this.$showLoading('加载中...')
+				let options, serviceData = null
+				try{
+					options = await indexapi.GetOptions('UserRole&UserID='+this.YLoginId)
+					serviceData = await indexapi.loadService()
+				}catch(e){
+					this.$ToastFail('服务获取失败,请下拉刷新重试')
 					return 
-				}else{
-					this.serviceList = serviceData.rows
-					uni.hideLoading()
-					if(this.serviceList == null) return
-					if(this.serviceList.length <= 0) this.ToastFail('暂无服务')
 				}
-				
+				uni.hideLoading()
+				this.serviceList = serviceData.rows
+				console.log(this.serviceList)
+				if(this.serviceList == null){
+					this.$ToastFail('暂无服务') 
+					return
+				} 
+				if(this.serviceList.length <= 0) this.$ToastFail('暂无服务')
 			},
-			//显示提示信息
-			ToastFail(text){
-				uni.showToast({
-					icon:'none',
-					title: text
-				})
-			}
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+	// @baseURL: 'http://localhost:8090';
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -177,7 +182,7 @@
 	.index-header {
 		width: 750rpx;
 		height: 350rpx;
-		background-image: url(http://localhost:8083/img/Timg.jpg);
+		// background-image: url('@{baseURL}/img/Timg.jpg');
 		background-size: 750rpx 350rpx;
 		border-radius:0rpx 0rpx 30rpx 30rpx;
 		box-shadow: 0rpx 10rpx 5rpx #e2e2e2;

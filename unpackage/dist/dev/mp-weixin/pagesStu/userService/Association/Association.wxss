@@ -1,0 +1,30 @@
+.fixed-top.data-v-0ea9dd5d {
+  height: 300rpx;
+}
+.header.data-v-0ea9dd5d {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.header title-icon.data-v-0ea9dd5d {
+  width: 300rpx;
+}
+.header .btn-myprocess.data-v-0ea9dd5d {
+  margin-right: 50rpx;
+}
+.list.data-v-0ea9dd5d {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding: 5rpx;
+  margin-bottom: 10rpx;
+}
+

@@ -1,0 +1,43 @@
+.main.data-v-8f444e08 {
+  background-repeat: no-repeat;
+  background-size: 750rpx;
+  min-height: 1000rpx;
+}
+.header.data-v-8f444e08 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.header title-icon.data-v-8f444e08 {
+  width: 180rpx;
+}
+.header .btn-myprocess.data-v-8f444e08 {
+  margin-left: 10rpx;
+}
+.info.data-v-8f444e08 {
+  margin-top: 120rpx;
+}
+.info .cu-bar.data-v-8f444e08 {
+  width: 650rpx;
+  margin-left: 50rpx;
+}
+.info .self-intro .cu-form-group.data-v-8f444e08 {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 650rpx;
+  margin-left: 50rpx;
+  margin-top: 12rpx;
+}
+.info .self-intro .cu-form-group textarea.data-v-8f444e08 {
+  height: ;
+}
+

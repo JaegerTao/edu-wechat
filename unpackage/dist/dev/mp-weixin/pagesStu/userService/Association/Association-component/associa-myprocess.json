@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "title-icon": "/components/title-icon/title-icon",
+    "associa-card-subed": "/pagesStu/userService/Association/Association-component/associa-card-subed"
+  }
+}

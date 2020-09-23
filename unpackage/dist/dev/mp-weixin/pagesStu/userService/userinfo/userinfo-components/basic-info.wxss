@@ -1,0 +1,34 @@
+.page.data-v-aaad1e9c {
+  background-color: #F0F0F0;
+}
+.user-header .cu-item.data-v-aaad1e9c {
+  box-shadow: 0rpx 10rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.user-header .cu-item .cu-avatar.data-v-aaad1e9c {
+  height: 150rpx;
+  width: 150rpx;
+  margin-left: 15rpx;
+}
+.user-header .cu-item .header-content.data-v-aaad1e9c {
+  height: 130rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.user-header .cu-item .header-content .header-name.data-v-aaad1e9c {
+  font-size: 35rpx;
+}
+.basic-info .cu-list.data-v-aaad1e9c,
+.basic-info .cu-bar.data-v-aaad1e9c {
+  width: 690rpx;
+  margin-left: 30rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgba(0, 0, 0, 0.1);
+  border-radius: 5rpx;
+}
+

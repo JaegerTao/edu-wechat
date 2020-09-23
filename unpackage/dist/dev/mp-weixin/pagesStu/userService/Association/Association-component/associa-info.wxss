@@ -1,0 +1,35 @@
+.main.data-v-1685fe80 {
+  background-repeat: no-repeat;
+  background-size: 750rpx;
+  min-height: 1000rpx;
+}
+.header.data-v-1685fe80 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.header title-icon.data-v-1685fe80 {
+  width: 300rpx;
+}
+.header .btn-myprocess.data-v-1685fe80 {
+  margin-right: 50rpx;
+}
+.associa-content.data-v-1685fe80 {
+  margin-top: 30rpx;
+}
+.associa-content .ass-intro.data-v-1685fe80 {
+  margin-top: 50rpx;
+  width: 680rpx;
+  margin-left: 35rpx;
+}
+

@@ -1,10 +1,8 @@
+<!-- 常见事务指南具体信息 -->
 <template>
 	<view class="page-affairDetail">
 		<view class="header bg-img" :style="[{backgroundImage: 'url('+headerImgUrl+')'}]">
-			<view class="header-icon" :style="[{backgroundImage: 'url('+stuScoreImgUrl+')'}]">
-				<view class="text-bold">服务指南</view>
-				<view class="header-icon-sub">SERVICE GUIDE</view>
-			</view>
+			<title-icon></title-icon>
 			<view class="header-title">
 				<view>{{title}}</view>
 			</view>
@@ -29,7 +27,7 @@
 <script>
 	import hdprcapi from '@/common/userServiceApis/hdPrcapi.js'
 	import parseHtml from '@/common/html-parser.js'
-	import navHeader from '@/components/nav-header.vue'
+	// import navHeader from '@/components/nav-header.vue'
 	
 	export default {
 		data() {
@@ -81,7 +79,7 @@
 			}
 		},
 		components:{
-			navHeader
+			// navHeader
 		},
 		onLoad(e) {
 			if(e.AddNo){
@@ -95,15 +93,27 @@
 		methods: {
 			//获取具体内容
 			async showGuideCon(){
-				let resdata = await hdprcapi.showGuideCon(this.AddNo)
-				console.log(resdata)
-				if(resdata == null) return
-				this.AffairData = resdata
+				this.$showLoading("加载中...")
+				try{
+					let resdata = await hdprcapi.showGuideCon(this.AddNo)
+					console.log(resdata)
+					this.AffairData = resdata
+				}catch(e){
+					//TODO handle the exception
+					this.$ToastFail('获取失败,请重试')
+				}
+				uni.hideLoading()
 			},
 			//点赞
 			async appreciate(){
-				let addLike = await hdprcapi.addLikeCnt(this.AddNo)
-				console.log(addLike)
+				try{
+					let addLike = await hdprcapi.addLikeCnt(this.AddNo)
+					console.log(addLike)
+					this.$ToastSuccess("点赞成功")
+				}catch(e){
+					//TODO handle the exception
+					this.$ToastFail("点赞失败，请重试")
+				}
 			}
 		}
 	}
@@ -117,20 +127,6 @@
 	.header{
 		border-bottom: 1rpx solid #a3f4f4;
 		padding-bottom: 10rpx;
-		.header-icon{
-			height: 90rpx;
-			background-repeat: no-repeat;
-			background-size: 200rpx;
-			display: flex;
-			flex-direction: column;
-			view{
-				margin-top: 5rpx;
-				margin-left: 28rpx;
-			}
-			.header-icon-sub{
-				font-size: 17rpx;
-			}
-		}
 		.header-title {
 			// text-align: center;
 			height: 80rpx;

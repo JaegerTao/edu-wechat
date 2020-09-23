@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "nav-header": "/components/nav-header/nav-header",
+    "title-icon": "/components/title-icon/title-icon",
+    "associa-card": "/pagesStu/userService/Association/Association-component/associa-card",
+    "associa-info": "/pagesStu/userService/Association/Association-component/associa-info",
+    "associa-join": "/pagesStu/userService/Association/Association-component/associa-join",
+    "associa-myprocess": "/pagesStu/userService/Association/Association-component/associa-myprocess"
+  }
+}

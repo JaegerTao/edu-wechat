@@ -1,3 +1,4 @@
+<!-- 常见事务指南页面 -->
 <template>
 	<view class="page-handleProcess">
 		<view class="header">
@@ -7,10 +8,11 @@
 			<view class="cu-bar search bg-white">
 				<view class="search-form round">
 					<text class="cuIcon-search"></text>
-					<input :adjust-position="false" type="text" placeholder="输入指南名称或关键字" confirm-type="search"></input>
+					<input v-model="match" :adjust-position="false" type="text" placeholder="输入指南名称或关键字" confirm-type="search"></input>
+					<text class="cuIcon-roundclose" v-show="match.length > 0" @tap="doCancel()"></text>
 				</view>
 				<view class="action">
-					<button class="cu-btn bg-green shadow-blur round" @tap="showList">搜索</button>
+					<button class="cu-btn bg-green shadow-blur round" @tap="showList('search')">搜索</button>
 				</view>
 			</view>
 		</view>
@@ -36,17 +38,20 @@
 
 <script>
 	import hdprcapi from '@/common/userServiceApis/hdPrcapi.js'
-	import navHeader from '@/components/nav-header.vue'
+	// import navHeader from '@/components/nav-header.vue'
 	import uniPagination from '@/components/uni-pagination/uni-pagination.vue'
 	export default {
 		data() {
 			return {
 				affairList:null,//事务名列表
 				InputBottom: 0,
+				match: '',//搜索关键词
+				currentPage: 1,//当前页码
+				currentSearchType: 'showList',//当前的换页搜索模式 showList:全局列表换页 search:搜索结果列表换页
 			};
 		},
 		components:{
-			navHeader,
+			// navHeader,
 			uniPagination
 		},
 		computed:{
@@ -75,7 +80,7 @@
 		onLoad() {
 		},
 		onShow() {
-			this.showList()
+			this.showList('showList')
 		},
 		methods:{
 			//跳转到事务办理详情页面
@@ -87,21 +92,34 @@
 				})
 			},
 			//获取事务列表
-			async showList(){
-				uni.showLoading({
-					title:'加载中',
-					mask:true
-				})
-				let listData = await hdprcapi.ulFenSearch('showList', 1, '')
-				uni.hideLoading()
-				if(listData == null){
+			async showList(flagAddr){
+				this.$showLoading('加载中...')
+				try{
+					if(flagAddr === 'showList'){
+						let listData = await hdprcapi.ulFenSearch('showList', this.currentPage , '')
+						this.currentSearchType = 'showList' //当前换页的搜索模式改为showList
+						this.affairList = listData.rows
+					}else if( flagAddr === 'search'){
+						let listData = await hdprcapi.ulFenSearch('search', this.currentPage , this.match)
+						this.currentSearchType = 'search'
+						this.affairList = listData.rows
+					}
+					
+				}catch(e){
+					//TODO handle the exception
+					console.log(e)
 					this.$ToastFail('列表加载失败')
-					return
 				}
-				this.affairList = listData.rows
+				uni.hideLoading()
 			},
 			pageChange(e){
 				console.log(e.current)
+				this.currentPage = e.current
+				this.showList(this.currentSearchType)
+			},
+			doCancel(){//取消搜索
+				this.match = ''
+				this.showList('showList')
 			}
 		}
 	}

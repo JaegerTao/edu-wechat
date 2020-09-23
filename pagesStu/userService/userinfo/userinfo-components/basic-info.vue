@@ -5,9 +5,9 @@
 			<view class="cu-item" style="{}">
 				<view class="flex align-center">
 					<view class="flex-sub padding-sm margin-xs radius">
-						<view class="cu-avatar radius xl padding" style="background-image: url(http://localhost:8083/StuInfoService/img/girl.png);">
+						<view class="cu-avatar radio xl padding" :style="{backgroundImage: 'url('+ baseURL +'/StuInfoService/funcStuTab/img/userface.gif);'}">
 						</view>
-						<!-- <view class="cu-avatar radius xl padding" :style="{backgroundImage:'url('+basicInfo?basicInfo['headphoto']:'http://localhost:8083/StuInfoService/img/girl.png'+')'}">
+						<!-- <view class="cu-avatar radius xl padding" :style="{backgroundImage:'url('+basicInfo? baseURL+basicInfo['headphoto']: baseURL+'/StuInfoService/funcStuTab/img/userface.gif'+')'}">
 						</view> -->
 					</view>
 					<view class="flex-twice padding-sm margin-xs radius">
@@ -89,6 +89,7 @@
 	export default {
 		data() {
 			return {
+				baseURL: this.$baseURL,
 				basicInfoDic: null, //显示字典
 				basicInfo: null,//基本信息json
 			}
@@ -101,12 +102,16 @@
 			//获取基本信息
 			async getBasicInfo(){
 				this.$showLoading('加载中...')
-				let binfo = await userinfoapi.getBasicInfo()
-				uni.hideLoading()
-				if(binfo == null) {
+				let binfo = null
+				try{
+					binfo = await userinfoapi.getBasicInfo()
+				}catch(e){
+					//TODO handle the exception
+					console.log(e)
 					this.$ToastFail('加载失败，请重试')
 					return
 				}
+				uni.hideLoading()
 				this.basicInfo = binfo
 			},
 		}

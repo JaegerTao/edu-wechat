@@ -12,7 +12,8 @@ Vue.use(verification)
 Vue.use(device)
 
 Vue.prototype.$store = store //挂载vuex
-Vue.prototype.$baseURL = 'http://localhost:8083'
+// Vue.prototype.$baseURL = 'http://localhost:8090'
+Vue.prototype.$baseURL = 'http://121.37.22.38'
 Vue.prototype.$contentType = 'application/x-www-form-urlencoded; charset=UTF-8'
 
 const app = new Vue({

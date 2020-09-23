@@ -26,7 +26,7 @@
 		props: {
 			url: { //图片链接
 				type: String,
-				default: '../static/imgs/个人数据@3x.png'
+				default: '../../static/imgs/个人数据@3x.png'
 			},
 			title: { //卡片标题
 				type: String,
@@ -36,7 +36,7 @@
 				type: String,
 				default: ''
 			},
-			imgsize:{
+			imgsize:{//图标大小
 				type: String,
 				default: '185'
 			}
@@ -52,7 +52,7 @@
 		margin: 20rpx;
 		padding: 20rpx;
 		background-color: rgba(256,256,256,0.9);
-		// height: 360rpx;
+		height: 330rpx;
 		
 		image {
 			margin: 10rpx;

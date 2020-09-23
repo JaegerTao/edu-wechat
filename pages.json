@@ -2,7 +2,9 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
-			"style": {}
+			"style": {
+				"enablePullDownRefresh": true
+			}
 		}, {
 			"path": "pages/mine/mine",
 			"style": {}
@@ -30,6 +32,13 @@
 			"path": "userService/handleProcess/handleProcess"
 		}, {
 			"path": "userService/handleProcess/affairDetail/affairDetail"
+		},{
+			"path": "userService/stuMaterialInfo/stuMaterialInfo"
+		},{
+			"path": "userService/Association/Association",
+			"style": {
+				"enablePullDownRefresh": true
+			}
 		}]
 	}],
 	"preloadRule":{
@@ -73,8 +82,11 @@
 			"name": "stutable",
 			"path": "pagesStu/userService/stuTable/stuTable"
 		}, {
-			"name": "onlinetest",
-			"path": "pagesStu/onlineTest/onlineTest"
+			"name": "ass",
+			"path": "pagesStu/userService/Association/Association"
+		},{
+			"name":"forget",
+			"path":"pages/login/forgetPwd/forgetPwd"
 		}]
 	}
 }

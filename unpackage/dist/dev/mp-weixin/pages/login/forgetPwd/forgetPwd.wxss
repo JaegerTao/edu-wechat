@@ -1,0 +1,27 @@
+.cu-form-group.data-v-27f04182 {
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.cu-form-group .title.data-v-27f04182 {
+  text-align: center;
+  min-width: calc(4em + 15px);
+}
+.cu-form-group.data-v-27f04182:hover {
+  background-color: #e1e1e1;
+}
+.btns.data-v-27f04182 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.btns button.data-v-27f04182 {
+  margin-bottom: 30rpx;
+  width: 650rpx;
+  margin-left: 50rpx;
+}
+

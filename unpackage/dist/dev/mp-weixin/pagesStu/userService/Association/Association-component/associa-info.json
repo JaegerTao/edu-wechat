@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "title-icon": "/components/title-icon/title-icon"
+  },
+  "component": true
+}

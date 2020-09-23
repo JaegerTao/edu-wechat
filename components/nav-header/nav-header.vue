@@ -2,7 +2,7 @@
 <template>
 	<view class="header">
 		<view class="header-title">
-			<image src="../static/imgs/sicnu-logo-white.png" mode="aspectFit"></image>
+			<image src="../../static/imgs/sicnu-logo-white.png" mode="aspectFit"></image>
 			<view class="header-title-main">
 				{{title}}
 			</view>

@@ -709,7 +709,7 @@
 </template>
 
 <script>
-	import navHeader from '../../../components/nav-header.vue'
+	// import navHeader from '../../../components/nav-header.vue'
 	import stuTable from './stutable.js'
 
 	export default {
@@ -720,7 +720,7 @@
 				menuList: null,
 				currentIndex: 0,
 
-				avatarURL: 'http://localhost:8083/StuInfoService/funcStuInfo/img/userface.gif',
+				avatarURL: this.$baseURL + '/StuInfoService/funcStuInfo/img/userface.gif',
 				loading: false,
 
 				singleSonPicker: ['是', '否'],
@@ -728,7 +728,7 @@
 			};
 		},
 		components: {
-			navHeader
+			// navHeader
 		},
 		onShow() {
 			this.menuList = stuTable.menuList

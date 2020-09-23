@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "min-collapse": "/components/min-collapse/min-collep",
+    "subject-card": "/pagesStu/onlineTest/onlineTest-components/subject-card"
+  }
+}

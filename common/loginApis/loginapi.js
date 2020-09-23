@@ -1,3 +1,4 @@
+//登录模块api
 import Vue from 'vue'
 let vm = new Vue()
 import storageEx from '../storage.js'//缓存模块
@@ -16,7 +17,7 @@ async function doLogin(submitData, type) {
 	storageEx.clearExpire()
 	return new Promise((resolve, reject) => {
 		uni.request({
-			url: vm.$baseURL + '/user/loginVerify/login',
+			url: vm.$baseURL + '/loginVerify/login',
 			method:'POST',
 			header:{
 				'Content-Type': vm.$contentType
@@ -69,10 +70,10 @@ async function checkUser(puser){
 					storageEx.clearExpire()
 					resolve('logout:ok')
 				}else if(puser == 'ONLINEMARK'){
-					// setTimeout(()=>{
-					// 	checkUser('ONLINEMARK', 180000)
-					// })
-					resolve('onlinemark')
+					setTimeout(()=>{
+						checkUser('ONLINEMARK')
+					},180000)
+					resolve('ONLINEMARK')
 				}
 			},
 			fail: (err) => {
@@ -149,7 +150,7 @@ async function getVerCodeFlag(val) {
 async function getPublicKey() {
 	return new Promise((resolve, reject) => {
 		uni.request({
-			url: vm.$baseURL + '/user/loginVerify/public_key',
+			url: vm.$baseURL + '/loginVerify/public_key',
 			method: 'POST',
 			success: (res) => {
 				console.log(res)
@@ -165,12 +166,66 @@ async function getPublicKey() {
 	})
 }
 
+
+//找回密码模块
+//获取系统角色
+function getSysRole(){
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url: vm.$baseURL + '/user/ForgetPwd/getSysRole',
+			method:'GET',
+			header:{
+				'X-SESSION-TOKEN': storageEx.getStorageExpire('STOKEN'),
+				'Content-Type': vm.$contentType
+			},
+			success: (res) => {
+				console.log(res)
+				resolve(res.data)
+			},
+			fail: (err)=>{
+				console.log(err)
+				reject(err)
+			}
+		})
+	})
+}
+//检查是否是userNo
+function isUserRole(userNo, IDCard){
+	return new Promise((resolve, reject)=>{
+		uni.request({
+			url: vm.$baseURL + '/user/ForgetPwd/isUserRole',
+			method:'POST',
+			header:{
+				'X-SESSION-TOKEN': storageEx.getStorageExpire('STOKEN'),
+				'Content-Type': vm.$contentType
+			},
+			data:{
+				RoleNo: 9,//微信端暂时只有学生用户，角色ID为9，后续如果有改动需要修改
+				UserNo: userNo,
+				IDCard: IDCard
+			},
+			success: (res) => {
+				// console.log(res)
+				resolve(res.data)
+			},
+			fail: (err) => {
+				console.log(err)
+				reject(err)
+			}
+		})
+	})
+}
+
 const loginapi = {
 	doLogin: doLogin,
 	doLogout: doLogout,
 	loadValiCode: loadValiCode,
 	getVerCodeFlag: getVerCodeFlag,
-	getPublicKey: getPublicKey
+	getPublicKey: getPublicKey,
+	checkUser: checkUser,
+	
+	getSysRole,
+	isUserRole
 }
 
 module.exports = loginapi

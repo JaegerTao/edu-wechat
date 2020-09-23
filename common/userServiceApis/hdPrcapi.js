@@ -1,3 +1,4 @@
+//学生办事指南api
 import Vue from 'vue'
 let vm = new Vue()
 
@@ -24,12 +25,12 @@ async function ulFenSearch(flagAddr, page, keyWord){
 				if(res.statusCode == 200){
 					resolve(res.data)
 				}else{
-					reject(null)
+					reject('err')
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})
@@ -51,12 +52,12 @@ async function addSeeCnt(AddNo){
 				if(res.data.msg == '成功'){
 					resolve(res.data.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})
@@ -80,8 +81,7 @@ async function showGuideCon(AddNo){
 			},
 			fail: (err) => {
 				console.log(err)
-				vm.$ToastFail('获取失败,请检查网络')
-				reject(null)
+				reject(err)
 			}
 		})
 	})
@@ -101,15 +101,14 @@ async function addLikeCnt(AddNo){
 			},
 			success: (res) => {
 				if(res.data.msg == '成功'){
-					vm.$ToastFail('点赞成功')
 					resolve(res.data.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})

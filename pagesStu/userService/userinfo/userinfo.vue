@@ -10,11 +10,8 @@
 			
 			<grade-info v-if="navCur==1"></grade-info>
 			
-			<actapply-info v-if="navCur==2"></actapply-info>
-			
 			<view class="cu-tabbar-height"></view>
 		</view>
-		
 		<view class="cu-bar tabbar bg-gray foot">
 			<view class="action" :class="navCur==0?'text-blue':'text-gray'" @tap="NavChange" data-cur="0">
 				<view class="cuIcon-my"></view>个人基本信息
@@ -22,15 +19,12 @@
 			<view class="action" :class="navCur==1?'text-blue':'text-gray'" @tap="NavChange" data-cur="1">
 				<view class="cuIcon-selection"></view>学业成绩与活动总览
 			</view>
-			<!-- <view class="action" :class="navCur==2?'text-blue':'text-gray'" @tap="NavChange" data-cur="2">
-				<view class="cuIcon-selection"></view>活动总览
-			</view> -->
 		</view>
 	</view>
 </template>
 
 <script>
-	import navHeader from '@/components/nav-header.vue'
+	// import navHeader from '@/components/nav-header.vue'
 	import basicInfo from './userinfo-components/basic-info.vue'
 	import gradeInfo from './userinfo-components/grade-info.vue'
 	export default {
@@ -40,7 +34,7 @@
 			};
 		},
 		components:{
-			navHeader,
+			// navHeader,
 			basicInfo,
 			gradeInfo
 		},

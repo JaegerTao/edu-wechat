@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nav-header": "/components/nav-header/nav-header",
+    "title-icon": "/components/title-icon/title-icon"
+  }
+}

@@ -1,0 +1,35 @@
+.associa-card.data-v-0b6d13e2 {
+  margin: 15rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.associa-card .left.data-v-0b6d13e2 {
+  margin-left: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.associa-card .right.data-v-0b6d13e2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.associa-card .right .card-title.data-v-0b6d13e2 {
+  font-size: 20rpx;
+}
+.associa-card .right .btn-join button.data-v-0b6d13e2 {
+  height: 30rpx;
+  font-size: 20rpx;
+}
+

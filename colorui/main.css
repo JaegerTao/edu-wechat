@@ -2833,6 +2833,10 @@ scroll-view.cu-steps .cu-item {
 	flex: 5
 }
 
+.flex-ninth{
+	flex: 9;
+}
+
 .flex-direction {
 	flex-direction: column;
 }

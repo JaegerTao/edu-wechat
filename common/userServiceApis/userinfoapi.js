@@ -1,10 +1,12 @@
+//学生一张表api
 import Vue from 'vue'
 let vm = new Vue()
 //获取基本信息
 async function getBasicInfo(){
 	return new Promise((resolve,reject)=>{
 		uni.request({
-			url: vm.$baseURL + '/stuinfo/StuTable/getBasicInfo',
+			// url: vm.$baseURL + '/stuinfo/StuTable/getBasicInfo',
+			url: vm.$baseURL + '/g1DownUploadStuInfo/getBasicInfo',
 			method:'POST',
 			header:{
 				'X-SESSION-TOKEN': vm.$store.state.STOKEN
@@ -14,12 +16,12 @@ async function getBasicInfo(){
 				if(res.statusCode == 200){
 					resolve(res.data.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(res)
 			}
 		})
 	})
@@ -37,12 +39,12 @@ async function GetOptions(gType){
 				if(res.statusCode == 200){
 					resolve(res.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})
@@ -51,14 +53,15 @@ async function GetOptions(gType){
 async function searchGrade(termCode){
 	return new Promise((resolve, reject)=>{
 		uni.request({
-			url: vm.$baseURL + '/school/person/funcPubStudent/SearchInfo/searchGrade',
+			url: vm.$baseURL + '/school/person/funcPubStudent/SearchInfo/searchScore',
 			header:{
 				'X-SESSION-TOKEN': vm.$store.state.STOKEN
 			},
 			data:{
 				termCode: termCode,
-				StuNo: '2019110401', //测试学号  后期替换：vm.$store.state.YLoginId,
+				StuNo: vm.$store.state.YLoginId, //'2019110401'测试学号已替换：
 				_search: false,
+				UnitID: 11,
 				nd:'',
 				rows: 500,
 				page: 1,
@@ -69,12 +72,12 @@ async function searchGrade(termCode){
 				if(res.statusCode == 200){
 					resolve(res.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})
@@ -101,12 +104,12 @@ async function getActApplyInfo(termCode){
 				if(res.statusCode == 200){
 					resolve(res.data)
 				}else{
-					reject(null)
+					reject(res)
 				}
 			},
 			fail: (err) => {
 				console.log(err)
-				reject(null)
+				reject(err)
 			}
 		})
 	})

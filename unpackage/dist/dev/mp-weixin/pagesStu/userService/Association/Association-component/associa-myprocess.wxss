@@ -1,0 +1,16 @@
+.main.data-v-0bf8533e {
+  background-repeat: no-repeat;
+  background-size: 750rpx;
+  min-height: 1000rpx;
+}
+.info.data-v-0bf8533e {
+  margin-top: 50rpx;
+}
+.info .cu-bar.data-v-0bf8533e {
+  width: 650rpx;
+  margin-left: 50rpx;
+}
+.info .cu-bar view.data-v-0bf8533e {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+

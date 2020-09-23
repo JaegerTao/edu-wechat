@@ -29,7 +29,7 @@
 </template>
 
 <script>
-	import navHeader from '@/components/nav-header.vue'
+	// import navHeader from '@/components/nav-header.vue'
 	import circlePercent from '@/components/circle-percent/circle-percent.vue'
 	import quesBank from '@/pagesStu/onlineTest/onlineTest-components/ques-bank.vue'
 	
@@ -53,7 +53,7 @@
 			}
 		},
 		components: {
-			navHeader,
+			// navHeader,
 			circlePercent,
 			quesBank
 		},

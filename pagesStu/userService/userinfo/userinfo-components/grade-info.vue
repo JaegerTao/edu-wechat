@@ -66,8 +66,8 @@
 							<view class="flex-twice">
 								成绩
 							</view>
-							<view class="flex-twice">
-								排名
+							<view class="flex-treble">
+								班级位置(%)
 							</view>
 						</view>
 						<view class="TableItem flex align-center" v-for="(grade, index) in gradeList" :key="index">
@@ -81,10 +81,10 @@
 								{{ grade.Credit }}
 							</view>
 							<view class="flex-twice">
-								{{ grade.QMCJ }}
+								{{ grade.Score?grade.Score:'--' }}
 							</view>
-							<view class="flex-twice">
-								{{ grade.crank }}
+							<view class="flex-treble">
+								{{ grade.Location?grade.Location:'--' }}
 							</view>
 						</view>
 					</view>
@@ -111,11 +111,11 @@
 			</view>
 		</view>
 		<scroll-view scroll-x="true">
-			<block v-if="hasGrade">
+			<block v-if="hasAct">
 				<view class="Main Main-2 cu-card case">
 					<view class="cu-item shadow">
 						<view class="TableHead flex align-center text-bold">
-							<view class="flex-fifth">
+							<view class="flex-ninth">
 								活动名称
 							</view>
 							<view class="flex-treble">
@@ -147,7 +147,7 @@
 							</view>
 						</view>
 						<view class="TableItem flex align-center" v-for="(act, index) in actList" :key="index">
-							<view class="flex-fifth">
+							<view class="flex-ninth">
 								{{act.actName}}
 							</view>
 							<view class="flex-treble">
@@ -163,7 +163,7 @@
 								{{act.stuName}}
 							</view>
 							<view class="flex-fourth">
-								{{act.stuNo}}
+								{{act.stuNo?act.stuNo:'--'}}
 							</view>
 							<view class="flex-fourth">
 								{{act.UName}}
@@ -220,6 +220,10 @@
 			},
 			hasGrade() { //成绩单长度是否大于0，是返回true 否返回false
 				if (this.gradeList.length <= 0) return false
+				return true
+			},
+			hasAct(){//活动列表长度是否大于0
+				if(this.actList.length <= 0) return false
 				return true
 			}
 		},
@@ -300,22 +304,36 @@
 			},
 			//获取成绩单
 			async searchGrade() {
-				let resGrade = await userinfoapi.searchGrade(this.currentOption.termCode)
-				if (resGrade == null) {
+				try {
+					let resGrade = await userinfoapi.searchGrade(this.currentOption.termCode)
+					if (!resGrade) {
+						this.$ToastFail('加载失败，请重试')
+						return
+					}
+					this.gradeList = resGrade.rows
+				} catch (e) {
+					//TODO handle the exception
+					console.log(e)
 					this.$ToastFail('加载失败，请重试')
 					return
 				}
-				this.gradeList = resGrade.rows
 			},
 			//获取活动列表
 			async getActInfo() {
-				let resAct = await userinfoapi.getActApplyInfo(this.currentOption.termCode)
-				if (resAct == null) {
+				try{
+					let resAct = await userinfoapi.getActApplyInfo(this.currentOption.termCode)
+					if (!resAct) {
+						this.$ToastFail('加载失败，请重试')
+						return
+					}
+					this.actList = resAct.rows
+					this.actTotal = resAct.total
+				}catch(e){
+					//TODO handle the exception
+					console.log(e)
 					this.$ToastFail('加载失败，请重试')
 					return
 				}
-				this.actList = resAct.rows
-				this.actTotal = resAct.total
 			}
 		}
 	}
@@ -346,7 +364,7 @@
 	}
 
 	.Main {
-		background-color: #F0F0F0;
+		// background-color: #F0F0F0;
 
 		.TableHead,
 		.TableItem {
@@ -390,5 +408,10 @@
 
 	.Main-2 {
 		width: 2500rpx;
+	}
+	
+	scroll-view{
+		border: 1rpx solid rgba(0,0,0,0.1);
+		border-radius: 10rpx;
 	}
 </style>

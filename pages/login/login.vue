@@ -16,18 +16,22 @@
 						 :data-id="0">
 							学生登录
 						</view>
-						<view class="cu-item flex-sub" :class="1==TabCur?'text-blue cur':''"  @tap="tabSelect"
+						<!-- <view class="cu-item flex-sub" :class="1==TabCur?'text-blue cur':''"  @tap="tabSelect"
 						 :data-id="1">
 							管理登录
-						</view>
+						</view> -->
 					</view>
 				</scroll-view>
 			</view>
 			<view class="FormLogin padding-xl">
 				<form>
-					<view class="cu-form-group">
+					<!-- <view class="cu-form-group">
 						<view class="title cuIcon-people"></view>
 						<input type="number" :placeholder="TabCur==0?'学号':'职工号'" v-model="formData[0].rules.value" />
+					</view> -->
+					<view class="cu-form-group">
+						<view class="title cuIcon-people"></view>
+						<input type="number" placeholder="学号" v-model="formData[0].rules.value" />
 					</view>
 					<view class="cu-form-group Captcha">
 						<view class="title cuIcon-unlock"></view>
@@ -36,7 +40,12 @@
 					<view class="cu-form-group Captcha">
 						<view class="title cuIcon-same"></view>
 						<input type="text" placeholder="验证码"  v-model="formData[2].rules.value" />
-						<image :src="verifyImg?'data:image/png;base64,'+verifyImg:'../../static/imgs/valicodefail.png'" mode="aspectFit" @tap="loadValiCode"></image>
+						<block v-if="verifyImg">
+							<image :src="verifyImg?'data:image/png;base64,'+verifyImg:'../../static/imgs/valicodefail.png'" mode="aspectFit" @tap="loadValiCode"></image>
+						</block>
+						<block v-else>
+							<text class="cuIcon-loading" @tap="loadValiCode"></text>
+						</block>
 					</view>
 				</form>
 			</view>
@@ -44,7 +53,7 @@
 				<button class="BtnLogin cu-btn bg-blue" @tap="doLogin">登录</button>
 			</view>
 			<view class="bg-white text-center padding-top padding-bottom">
-				<text class="cuIcon-question text-gray">忘记密码</text>
+				<text class="cuIcon-question text-gray" @tap="navTo()">忘记密码</text>
 			</view>
 		</view>
 		
@@ -69,7 +78,7 @@
 						type:"number",
 						rules:{
 							name:"user",
-							value: "20181303002",
+							value: "2019110405",
 							verify: "req|number"
 						}
 					},{
@@ -78,7 +87,7 @@
 						type:"password",
 						rules:{
 							name:"pwd",
-							value:"123456",
+							value:"050016",
 							verify:"req|pwd6to20",
 							errMess:"密码格式不正确"
 						}
@@ -127,7 +136,7 @@
 					//验证码
 					let imgflag = await loginapi.getVerCodeFlag(this.formData[2].rules.value)
 					if(!imgflag) {
-						this.ToastFail('验证码错误')
+						this.$ToastFail('验证码错误')
 						this.loadValiCode()
 						return false
 					}
@@ -154,7 +163,7 @@
 					}
 				}).catch(err=>{
 					console.log(err)
-					this.ToastFail(err)
+					this.$ToastFail(err)
 				})
 			},
 			//加载验证码图片
@@ -163,15 +172,13 @@
 					this.verifyImg = wx.arrayBufferToBase64(res)
 				}).catch(err=>{
 					this.verifyImg = null
-					this.ToastFail('获取验证码失败，请重试')
+					this.$ToastFail('获取验证码失败，请重试')
 					console.log(err)
 				})
 			},
-			//显示提示信息
-			ToastFail(text){
-				uni.showToast({
-					icon:'none',
-					title: text
+			navTo(){
+				uni.navigateTo({
+					url:'./forgetPwd/forgetPwd'
 				})
 			}
 		}

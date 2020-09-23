@@ -21,7 +21,7 @@
 		
 		<view class="main">
 			<view class="cu-list menu">
-				<view class="cu-item arrow" v-if="hasLogin">
+				<view class="cu-item arrow" v-if="hasLogin" @tap="navTo('../login/forgetPwd/forgetPwd')">
 					<view class="content">
 						<text class="cuIcon-list"></text>
 						<text class="text-black">账号管理</text>
@@ -30,7 +30,7 @@
 				<view class="cu-item arrow">
 					<view class="content">
 						<text class="cuIcon-question"></text>
-						<text class="text-black">帮助中心</text>
+						<text class="text-black">关于我们</text>
 					</view>
 				</view>
 			</view>
@@ -46,19 +46,19 @@
 <script>
 	import {mapState} from 'vuex'
 	import loginapi from '../../common/loginApis/loginapi.js'
-	import navHeader from '../../components/nav-header.vue'
+	// import navHeader from '../../components/nav-header.vue'
 	
 	export default {
 		data() {
 			return {
-				avatarURL:'http://localhost:8083/StuInfoService/img/girl.png',
+				avatarURL:  this.$baseURL + '/StuInfoService/img/girl.png',
 			};
 		},
 		computed:{
 			...mapState(['hasLogin','YUserName','YLoginId']),
 		},
 		components:{
-			navHeader
+			// navHeader
 		},
 		onShow() {
 		},
@@ -107,12 +107,13 @@
 </script>
 
 <style lang="less" scoped>
+	@baseURL: 'http://localhost:8090';
 	.container{
 		
 	}
 	.header{
 		height: 250rpx;
-		background-image: url(http://localhost:8083/img/Timg.jpg);
+		background-image: url('@{baseURL}/img/Timg.jpg');
 		background-size: 800rpx 300rpx;
 		border-radius:0rpx 0rpx 30rpx 30rpx;
 		box-shadow: 0rpx 10rpx 5rpx #e2e2e2;

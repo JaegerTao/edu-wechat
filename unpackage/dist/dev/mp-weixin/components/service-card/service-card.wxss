@@ -1,0 +1,24 @@
+.card.data-v-700eae84 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 330rpx;
+}
+.card image.data-v-700eae84 {
+  margin: 10rpx;
+  border-radius: 40%;
+}
+.card .card-title-vice.data-v-700eae84 {
+  margin-top: 5rpx;
+  color: #b3b3b3;
+  font-size: 22rpx;
+}
+.card.data-v-700eae84:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background-color: #e1e1e1;
+}
+
