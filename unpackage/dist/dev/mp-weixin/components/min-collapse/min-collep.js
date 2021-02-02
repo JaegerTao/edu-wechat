@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var minDescInput = function minDescInput() {__webpack_require__.e(/*! require.ensure | components/min-collapse/min-desc-input */ "components/min-collapse/min-desc-input").then((function () {return resolve(__webpack_require__(/*! ./min-desc-input.vue */ 235));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var minDescInput = function minDescInput() {__webpack_require__.e(/*! require.ensure | components/min-collapse/min-desc-input */ "components/min-collapse/min-desc-input").then((function () {return resolve(__webpack_require__(/*! ./min-desc-input.vue */ 242));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default2 =
 
 
 

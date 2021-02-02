@@ -1,60 +1,78 @@
 {
-  "description": "项目配置文件。",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "minified": true,
-    "postcss": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "",
-  "appid": "wx2ae6613c67b30006",
-  "projectname": "edu-wechat",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 0,
-      "list": [
-        {
-          "name": "login",
-          "id": 0,
-          "pathName": "pages/login/login"
-        },
-        {
-          "name": "userservice",
-          "id": 1,
-          "pathName": "pagesStu/userService/userService"
-        },
-        {
-          "name": "stutable",
-          "id": 2,
-          "pathName": "pagesStu/userService/stuTable/stuTable"
-        },
-        {
-          "name": "ass",
-          "id": 3,
-          "pathName": "pagesStu/userService/Association/Association"
-        },
-        {
-          "name": "forget",
-          "id": 4,
-          "pathName": "pages/login/forgetPwd/forgetPwd"
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "",
+	"appid": "wx2ae6613c67b30006",
+	"projectname": "edu-wechat",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"name": "login",
+					"id": 0,
+					"pathName": "pages/login/login"
+				},
+				{
+					"name": "userservice",
+					"id": 1,
+					"pathName": "pagesStu/userService/userService"
+				},
+				{
+					"name": "stutable",
+					"id": 2,
+					"pathName": "pagesStu/userService/stuTable/stuTable"
+				},
+				{
+					"name": "ass",
+					"id": 3,
+					"pathName": "pagesStu/userService/Association/Association"
+				},
+				{
+					"name": "forget",
+					"id": 4,
+					"pathName": "pages/login/forgetPwd/forgetPwd"
+				}
+			]
+		}
+	}
 }
